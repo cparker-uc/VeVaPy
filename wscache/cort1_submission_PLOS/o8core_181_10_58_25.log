@@ -1,0 +1,90 @@
+
+o8core, 2.0.11
+author: Emery Conrad
+build date: Jan 14 2011, 13:23:16
+
+[Mon Jun 29 10:58:25 2020]: creating logfile o8core_181_10_58_25.log
+[Mon Jun 29 10:58:25 2020]: initializing link on port 28472
+[Mon Jun 29 10:58:25 2020]: initializing winsock library
+[Mon Jun 29 10:58:25 2020]: link port is 28472
+[Mon Jun 29 10:58:25 2020]: port 28472 is bound
+[Mon Jun 29 10:58:25 2020]: listening on port 28472
+[Mon Jun 29 10:58:25 2020]: link outfifo: starting thread
+[Mon Jun 29 10:58:25 2020]: link outfifo: thread started
+[Mon Jun 29 10:58:25 2020]: o8core link: starting thread
+[Mon Jun 29 10:58:25 2020]: o8core link: thread started
+[Mon Jun 29 10:58:26 2020]: accepted socket connection on port 58581
+[Mon Jun 29 10:58:26 2020]: link received initialization message, reading in 3089 bytes of model text
+[Mon Jun 29 10:58:26 2020]: ignoring o8mi tag in model init
+[Mon Jun 29 10:58:49 2020]: link received run message, reading in 3141 bytes of o8r text
+[Mon Jun 29 10:58:49 2020]: ignoring notes in o8r
+[Mon Jun 29 10:58:49 2020]: ignoring plots in o8r
+[Mon Jun 29 10:58:49 2020]: running...
+[Mon Jun 29 10:58:49 2020]: running a one parameter bifurcation
+[Mon Jun 29 10:58:49 2020]: ignoring xprops
+[Mon Jun 29 10:58:49 2020]: solving for steady state
+[Mon Jun 29 10:58:49 2020]: trying newton's method
+[Mon Jun 29 10:58:49 2020]: try solving time series
+[Mon Jun 29 10:58:49 2020]: reached stable steady state
+[Mon Jun 29 10:58:49 2020]: continuing kp1
+[Mon Jun 29 10:58:49 2020]: LibAUTO: starting thread
+[Mon Jun 29 10:58:49 2020]: LibAUTO: thread started
+[Mon Jun 29 10:58:49 2020]: LibAUTO run time: 0.031 s
+[Mon Jun 29 10:58:49 2020]: LibAUTO: starting thread
+[Mon Jun 29 10:58:49 2020]: LibAUTO: thread started
+[Mon Jun 29 10:58:49 2020]: LibAUTO run time: 0.031 s
+[Mon Jun 29 10:58:49 2020]: returning 260 data bytes to client
+[Mon Jun 29 10:58:49 2020]: kp1 took 0.251 seconds (0.251 for actual continuation)
+[Mon Jun 29 10:58:49 2020]: run complete (0.329 s)
+[Mon Jun 29 10:58:49 2020]: done running
+[Mon Jun 29 10:58:49 2020]: returning (roughly) 2011 log bytes to client
+[Mon Jun 29 11:00:02 2020]: link received run message, reading in 3139 bytes of o8r text
+[Mon Jun 29 11:00:02 2020]: ignoring notes in o8r
+[Mon Jun 29 11:00:02 2020]: ignoring plots in o8r
+[Mon Jun 29 11:00:02 2020]: running...
+[Mon Jun 29 11:00:02 2020]: running a one parameter bifurcation
+[Mon Jun 29 11:00:02 2020]: ignoring xprops
+[Mon Jun 29 11:00:02 2020]: solving for steady state
+[Mon Jun 29 11:00:02 2020]: trying newton's method
+[Mon Jun 29 11:00:02 2020]: try solving time series
+[Mon Jun 29 11:00:02 2020]: reached stable steady state
+[Mon Jun 29 11:00:02 2020]: continuing kp1
+[Mon Jun 29 11:00:02 2020]: LibAUTO: starting thread
+[Mon Jun 29 11:00:02 2020]: LibAUTO: thread started
+[Mon Jun 29 11:00:02 2020]: LibAUTO run time: 0.079 s
+[Mon Jun 29 11:00:02 2020]: LibAUTO: starting thread
+[Mon Jun 29 11:00:02 2020]: LibAUTO: thread started
+[Mon Jun 29 11:00:02 2020]: LibAUTO run time: 0.031 s
+[Mon Jun 29 11:00:02 2020]: returning 260 data bytes to client
+[Mon Jun 29 11:00:02 2020]: kp1 took 0.235 seconds (0.235 for actual continuation)
+[Mon Jun 29 11:00:02 2020]: run complete (0.235 s)
+[Mon Jun 29 11:00:02 2020]: done running
+[Mon Jun 29 11:00:02 2020]: returning (roughly) 1147 log bytes to client
+[Mon Jun 29 11:00:40 2020]: link received run message, reading in 4005 bytes of o8r text
+[Mon Jun 29 11:00:40 2020]: ignoring notes in o8r
+[Mon Jun 29 11:00:40 2020]: ignoring plots in o8r
+[Mon Jun 29 11:00:40 2020]: running...
+[Mon Jun 29 11:00:40 2020]: running a one parameter bifurcation
+[Mon Jun 29 11:00:40 2020]: ignoring xprops
+[Mon Jun 29 11:00:40 2020]: solving for steady state
+[Mon Jun 29 11:00:40 2020]: trying newton's method
+[Mon Jun 29 11:00:40 2020]: try solving time series
+[Mon Jun 29 11:00:40 2020]: reached stable steady state
+[Mon Jun 29 11:00:40 2020]: continuing kp1
+[Mon Jun 29 11:00:40 2020]: LibAUTO: starting thread
+[Mon Jun 29 11:00:40 2020]: LibAUTO: thread started
+[Mon Jun 29 11:00:40 2020]: LibAUTO run time: 0.125 s
+[Mon Jun 29 11:00:40 2020]: LibAUTO: starting thread
+[Mon Jun 29 11:00:40 2020]: LibAUTO: thread started
+[Mon Jun 29 11:00:40 2020]: LibAUTO run time: 0.014 s
+[Mon Jun 29 11:00:40 2020]: returning 260 data bytes to client
+[Mon Jun 29 11:00:40 2020]: kp1 took 0.36 seconds (0.36 for actual continuation)
+[Mon Jun 29 11:00:40 2020]: run complete (0.36 s)
+[Mon Jun 29 11:00:40 2020]: done running
+[Mon Jun 29 11:00:40 2020]: returning (roughly) 1144 log bytes to client
+[Mon Jun 29 11:21:24 2020]: link received quit message, exiting.
+[Mon Jun 29 11:21:24 2020]: link outfifo: waiting for thread to finish...
+[Mon Jun 29 11:21:24 2020]: o8core link run time: 1378.56 s
+[Mon Jun 29 11:21:24 2020]: link outfifo run time: 1378.56 s
+[Mon Jun 29 11:21:24 2020]: link outfifo: 780 bytes in, 780 bytes out
+[Mon Jun 29 11:21:24 2020]: all done!

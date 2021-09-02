@@ -1,0 +1,92 @@
+
+o8core, 2.0.11
+author: Emery Conrad
+build date: Jan 14 2011, 13:23:16
+
+[Thu Jul 02 13:20:03 2020]: creating logfile o8core_184_13_20_3.log
+[Thu Jul 02 13:20:03 2020]: initializing link on port 28472
+[Thu Jul 02 13:20:03 2020]: initializing winsock library
+[Thu Jul 02 13:20:03 2020]: link port is 28472
+[Thu Jul 02 13:20:03 2020]: port 28472 is bound
+[Thu Jul 02 13:20:03 2020]: listening on port 28472
+[Thu Jul 02 13:20:03 2020]: link outfifo: starting thread
+[Thu Jul 02 13:20:03 2020]: link outfifo: thread started
+[Thu Jul 02 13:20:03 2020]: o8core link: starting thread
+[Thu Jul 02 13:20:03 2020]: o8core link: thread started
+[Thu Jul 02 13:20:04 2020]: accepted socket connection on port 49625
+[Thu Jul 02 13:20:04 2020]: link received initialization message, reading in 3089 bytes of model text
+[Thu Jul 02 13:20:04 2020]: ignoring o8mi tag in model init
+[Thu Jul 02 13:20:21 2020]: link received run message, reading in 3055 bytes of o8r text
+[Thu Jul 02 13:20:21 2020]: ignoring notes in o8r
+[Thu Jul 02 13:20:21 2020]: ignoring plots in o8r
+[Thu Jul 02 13:20:21 2020]: running...
+[Thu Jul 02 13:20:21 2020]: running a time series
+[Thu Jul 02 13:20:21 2020]: will run for 250 time units, 500 points
+[Thu Jul 02 13:20:21 2020]: returning 20040 data bytes to client
+[Thu Jul 02 13:20:21 2020]: run complete (0 s)
+[Thu Jul 02 13:20:21 2020]: done running
+[Thu Jul 02 13:20:21 2020]: returning (roughly) 1362 log bytes to client
+[Thu Jul 02 13:20:36 2020]: link received run message, reading in 3055 bytes of o8r text
+[Thu Jul 02 13:20:36 2020]: ignoring notes in o8r
+[Thu Jul 02 13:20:36 2020]: ignoring plots in o8r
+[Thu Jul 02 13:20:36 2020]: running...
+[Thu Jul 02 13:20:36 2020]: running a time series
+[Thu Jul 02 13:20:36 2020]: will run for 250 time units, 500 points
+[Thu Jul 02 13:20:36 2020]: returning 20040 data bytes to client
+[Thu Jul 02 13:20:36 2020]: run complete (0 s)
+[Thu Jul 02 13:20:36 2020]: done running
+[Thu Jul 02 13:20:36 2020]: returning (roughly) 499 log bytes to client
+[Thu Jul 02 13:20:52 2020]: link received run message, reading in 3138 bytes of o8r text
+[Thu Jul 02 13:20:52 2020]: ignoring notes in o8r
+[Thu Jul 02 13:20:52 2020]: ignoring plots in o8r
+[Thu Jul 02 13:20:52 2020]: running...
+[Thu Jul 02 13:20:52 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:20:52 2020]: ignoring xprops
+[Thu Jul 02 13:20:52 2020]: solving for steady state
+[Thu Jul 02 13:20:52 2020]: trying newton's method
+[Thu Jul 02 13:20:52 2020]: try solving time series
+[Thu Jul 02 13:20:52 2020]: reached stable steady state
+[Thu Jul 02 13:20:52 2020]: continuing kp1
+[Thu Jul 02 13:20:52 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:20:52 2020]: LibAUTO: thread started
+[Thu Jul 02 13:20:52 2020]: LibAUTO run time: 0.062 s
+[Thu Jul 02 13:20:52 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:20:52 2020]: LibAUTO: thread started
+[Thu Jul 02 13:20:52 2020]: LibAUTO run time: 0.015 s
+[Thu Jul 02 13:20:52 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:20:52 2020]: kp1 took 0.313 seconds (0.313 for actual continuation)
+[Thu Jul 02 13:20:52 2020]: run complete (0.313 s)
+[Thu Jul 02 13:20:52 2020]: done running
+[Thu Jul 02 13:20:52 2020]: returning (roughly) 1147 log bytes to client
+[Thu Jul 02 13:21:06 2020]: link received run message, reading in 4004 bytes of o8r text
+[Thu Jul 02 13:21:06 2020]: ignoring notes in o8r
+[Thu Jul 02 13:21:06 2020]: ignoring plots in o8r
+[Thu Jul 02 13:21:06 2020]: running...
+[Thu Jul 02 13:21:06 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:21:06 2020]: ignoring xprops
+[Thu Jul 02 13:21:06 2020]: solving for steady state
+[Thu Jul 02 13:21:06 2020]: trying newton's method
+[Thu Jul 02 13:21:06 2020]: try solving time series
+[Thu Jul 02 13:21:06 2020]: reached stable steady state
+[Thu Jul 02 13:21:06 2020]: continuing kp1
+[Thu Jul 02 13:21:06 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:21:06 2020]: LibAUTO: thread started
+[Thu Jul 02 13:21:06 2020]: LibAUTO run time: 0.047 s
+[Thu Jul 02 13:21:06 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:21:06 2020]: LibAUTO: thread started
+[Thu Jul 02 13:21:06 2020]: LibAUTO run time: 0.015 s
+[Thu Jul 02 13:21:06 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:21:06 2020]: kp1 took 0.297 seconds (0.297 for actual continuation)
+[Thu Jul 02 13:21:06 2020]: run complete (0.297 s)
+[Thu Jul 02 13:21:06 2020]: done running
+[Thu Jul 02 13:21:06 2020]: returning (roughly) 1147 log bytes to client
+[Thu Jul 02 13:25:05 2020]: ERROR: o8core link error: socket operation failed
+[Thu Jul 02 13:25:05 2020]: ERROR: 
+[Thu Jul 02 13:25:05 2020]: ERROR: (module o8core link exception) Terminating link
+failed at Link.cpp:387
+[Thu Jul 02 13:25:05 2020]: link outfifo: waiting for thread to finish...
+[Thu Jul 02 13:25:06 2020]: link outfifo run time: 302.054 s
+[Thu Jul 02 13:25:06 2020]: o8core link run time: 302.054 s
+[Thu Jul 02 13:25:06 2020]: ERROR: exception was caught while running module o8core link
+[Thu Jul 02 13:25:06 2020]: link outfifo: 40600 bytes in, 40600 bytes out
+[Thu Jul 02 13:25:06 2020]: all done!

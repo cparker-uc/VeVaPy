@@ -1,0 +1,20 @@
+24-Aug-2020 14:33:58 
+
+concentrations 			 velocities 			 glia velocities 
+
+bh2 = 0.10 				 trpin = 157.75 			 vup2 = 0.00 
+bh4 = 0.90 				 vtph = 3.9873 			 vgcatab = 0.00 
+trp = 20.17 				 vdrr = 3.9873 			 gleak = 0.00 
+htp = 1.61 				 vaadc = 3.9873 
+cht = 0.04 				 vmatnet = 127.4349 
+vht = 67.43 			 release = 127.4349 
+eht = 0.060067 			 vsert = 125.0699 
+hia = 1.58 				 				 		 fromglia = 0.00 
+pool = 113.43 			 vccatab = 1.5846 
+gstar =0.8639 			 vrem = 2.4027 
+tstar =1.0068 			 vpoolout = 113.43 
+bound =0.9757 			 vtrpout = 40.33  
+g5ht= 0.0000 			 cleak = 0.04 
+
+
+endconcentrations = [0.0995 0.9005 20.1651 1.6110 0.0376 67.4285 0.0601 1.5846 113.4289 0.0000 0.8639 1.0068 0.9757 0.0000] 

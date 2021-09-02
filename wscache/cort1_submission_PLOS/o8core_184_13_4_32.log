@@ -1,0 +1,371 @@
+
+o8core, 2.0.11
+author: Emery Conrad
+build date: Jan 14 2011, 13:23:16
+
+[Thu Jul 02 13:04:33 2020]: creating logfile o8core_184_13_4_32.log
+[Thu Jul 02 13:04:33 2020]: initializing link on port 28472
+[Thu Jul 02 13:04:33 2020]: initializing winsock library
+[Thu Jul 02 13:04:33 2020]: link port is 28472
+[Thu Jul 02 13:04:33 2020]: port 28472 is bound
+[Thu Jul 02 13:04:33 2020]: listening on port 28472
+[Thu Jul 02 13:04:33 2020]: link outfifo: starting thread
+[Thu Jul 02 13:04:33 2020]: link outfifo: thread started
+[Thu Jul 02 13:04:33 2020]: o8core link: starting thread
+[Thu Jul 02 13:04:33 2020]: o8core link: thread started
+[Thu Jul 02 13:04:33 2020]: accepted socket connection on port 37849
+[Thu Jul 02 13:04:33 2020]: link received initialization message, reading in 3089 bytes of model text
+[Thu Jul 02 13:04:33 2020]: ignoring o8mi tag in model init
+[Thu Jul 02 13:05:59 2020]: link received run message, reading in 3057 bytes of o8r text
+[Thu Jul 02 13:05:59 2020]: ignoring notes in o8r
+[Thu Jul 02 13:05:59 2020]: ignoring plots in o8r
+[Thu Jul 02 13:05:59 2020]: running...
+[Thu Jul 02 13:05:59 2020]: running a time series
+[Thu Jul 02 13:05:59 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:05:59 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:05:59 2020]: run complete (0.032 s)
+[Thu Jul 02 13:05:59 2020]: done running
+[Thu Jul 02 13:05:59 2020]: returning (roughly) 1367 log bytes to client
+[Thu Jul 02 13:07:30 2020]: link received run message, reading in 3138 bytes of o8r text
+[Thu Jul 02 13:07:30 2020]: ignoring notes in o8r
+[Thu Jul 02 13:07:30 2020]: ignoring plots in o8r
+[Thu Jul 02 13:07:30 2020]: running...
+[Thu Jul 02 13:07:30 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:07:30 2020]: ignoring xprops
+[Thu Jul 02 13:07:30 2020]: solving for steady state
+[Thu Jul 02 13:07:30 2020]: trying newton's method
+[Thu Jul 02 13:07:30 2020]: try solving time series
+[Thu Jul 02 13:07:30 2020]: reached stable steady state
+[Thu Jul 02 13:07:30 2020]: continuing kp1
+[Thu Jul 02 13:07:30 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:07:30 2020]: LibAUTO: thread started
+[Thu Jul 02 13:07:30 2020]: LibAUTO run time: 0.094 s
+[Thu Jul 02 13:07:30 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:07:30 2020]: LibAUTO: thread started
+[Thu Jul 02 13:07:30 2020]: LibAUTO run time: 0.031 s
+[Thu Jul 02 13:07:30 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:07:30 2020]: kp1 took 0.22 seconds (0.22 for actual continuation)
+[Thu Jul 02 13:07:30 2020]: run complete (0.236 s)
+[Thu Jul 02 13:07:30 2020]: done running
+[Thu Jul 02 13:07:30 2020]: returning (roughly) 1145 log bytes to client
+[Thu Jul 02 13:08:04 2020]: link received run message, reading in 3136 bytes of o8r text
+[Thu Jul 02 13:08:04 2020]: ignoring notes in o8r
+[Thu Jul 02 13:08:04 2020]: ignoring plots in o8r
+[Thu Jul 02 13:08:04 2020]: running...
+[Thu Jul 02 13:08:04 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:08:04 2020]: ignoring xprops
+[Thu Jul 02 13:08:04 2020]: solving for steady state
+[Thu Jul 02 13:08:04 2020]: trying newton's method
+[Thu Jul 02 13:08:04 2020]: try solving time series
+[Thu Jul 02 13:08:04 2020]: reached stable steady state
+[Thu Jul 02 13:08:04 2020]: continuing ki
+[Thu Jul 02 13:08:04 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:08:04 2020]: LibAUTO: thread started
+[Thu Jul 02 13:08:04 2020]: LibAUTO run time: 0.172 s
+[Thu Jul 02 13:08:04 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:08:04 2020]: LibAUTO: thread started
+[Thu Jul 02 13:08:04 2020]: LibAUTO run time: 0.047 s
+[Thu Jul 02 13:08:04 2020]: returning 8996 data bytes to client
+[Thu Jul 02 13:08:04 2020]: ki took 0.36 seconds (0.36 for actual continuation)
+[Thu Jul 02 13:08:04 2020]: run complete (0.36 s)
+[Thu Jul 02 13:08:04 2020]: done running
+[Thu Jul 02 13:08:04 2020]: returning (roughly) 1143 log bytes to client
+[Thu Jul 02 13:09:09 2020]: link received run message, reading in 3070 bytes of o8r text
+[Thu Jul 02 13:09:09 2020]: ignoring notes in o8r
+[Thu Jul 02 13:09:09 2020]: ignoring plots in o8r
+[Thu Jul 02 13:09:09 2020]: running...
+[Thu Jul 02 13:09:09 2020]: running limit cycle continuation
+[Thu Jul 02 13:09:09 2020]: ERROR: a valid input name is required to run periodic solution continuation
+[Thu Jul 02 13:09:09 2020]: run complete (0 s)
+[Thu Jul 02 13:09:09 2020]: done running
+[Thu Jul 02 13:09:09 2020]: returning (roughly) 481 log bytes to client
+[Thu Jul 02 13:09:16 2020]: link received run message, reading in 3997 bytes of o8r text
+[Thu Jul 02 13:09:16 2020]: ignoring notes in o8r
+[Thu Jul 02 13:09:16 2020]: ignoring plots in o8r
+[Thu Jul 02 13:09:16 2020]: running...
+[Thu Jul 02 13:09:16 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:09:16 2020]: ignoring xprops
+[Thu Jul 02 13:09:16 2020]: solving for steady state
+[Thu Jul 02 13:09:16 2020]: trying newton's method
+[Thu Jul 02 13:09:16 2020]: try solving time series
+[Thu Jul 02 13:09:16 2020]: reached stable steady state
+[Thu Jul 02 13:09:16 2020]: continuing ki
+[Thu Jul 02 13:09:16 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:16 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:16 2020]: LibAUTO run time: 0.172 s
+[Thu Jul 02 13:09:16 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:16 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:16 2020]: LibAUTO run time: 0.062 s
+[Thu Jul 02 13:09:16 2020]: returning 8996 data bytes to client
+[Thu Jul 02 13:09:16 2020]: ki took 0.359 seconds (0.359 for actual continuation)
+[Thu Jul 02 13:09:16 2020]: run complete (0.359 s)
+[Thu Jul 02 13:09:16 2020]: done running
+[Thu Jul 02 13:09:16 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:09:20 2020]: link received run message, reading in 3991 bytes of o8r text
+[Thu Jul 02 13:09:20 2020]: ignoring notes in o8r
+[Thu Jul 02 13:09:20 2020]: ignoring plots in o8r
+[Thu Jul 02 13:09:20 2020]: running...
+[Thu Jul 02 13:09:20 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:09:20 2020]: ignoring xprops
+[Thu Jul 02 13:09:20 2020]: solving for steady state
+[Thu Jul 02 13:09:20 2020]: trying newton's method
+[Thu Jul 02 13:09:20 2020]: try solving time series
+[Thu Jul 02 13:09:20 2020]: reached stable steady state
+[Thu Jul 02 13:09:20 2020]: continuing ki
+[Thu Jul 02 13:09:20 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:20 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:21 2020]: LibAUTO run time: 0.25 s
+[Thu Jul 02 13:09:21 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:21 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:21 2020]: LibAUTO run time: 0.047 s
+[Thu Jul 02 13:09:21 2020]: returning 8996 data bytes to client
+[Thu Jul 02 13:09:21 2020]: ki took 0.484 seconds (0.484 for actual continuation)
+[Thu Jul 02 13:09:21 2020]: run complete (0.484 s)
+[Thu Jul 02 13:09:21 2020]: done running
+[Thu Jul 02 13:09:21 2020]: returning (roughly) 1145 log bytes to client
+[Thu Jul 02 13:09:25 2020]: link received run message, reading in 4004 bytes of o8r text
+[Thu Jul 02 13:09:25 2020]: ignoring notes in o8r
+[Thu Jul 02 13:09:25 2020]: ignoring plots in o8r
+[Thu Jul 02 13:09:25 2020]: running...
+[Thu Jul 02 13:09:25 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:09:25 2020]: ignoring xprops
+[Thu Jul 02 13:09:25 2020]: solving for steady state
+[Thu Jul 02 13:09:25 2020]: trying newton's method
+[Thu Jul 02 13:09:25 2020]: try solving time series
+[Thu Jul 02 13:09:25 2020]: reached stable steady state
+[Thu Jul 02 13:09:25 2020]: continuing kp1
+[Thu Jul 02 13:09:25 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:25 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:25 2020]: LibAUTO run time: 0.093 s
+[Thu Jul 02 13:09:25 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:25 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:25 2020]: LibAUTO run time: 0.014 s
+[Thu Jul 02 13:09:25 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:09:25 2020]: kp1 took 0.235 seconds (0.235 for actual continuation)
+[Thu Jul 02 13:09:25 2020]: run complete (0.249 s)
+[Thu Jul 02 13:09:25 2020]: done running
+[Thu Jul 02 13:09:25 2020]: returning (roughly) 1147 log bytes to client
+[Thu Jul 02 13:09:30 2020]: link received run message, reading in 4004 bytes of o8r text
+[Thu Jul 02 13:09:30 2020]: ignoring notes in o8r
+[Thu Jul 02 13:09:30 2020]: ignoring plots in o8r
+[Thu Jul 02 13:09:30 2020]: running...
+[Thu Jul 02 13:09:30 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:09:30 2020]: ignoring xprops
+[Thu Jul 02 13:09:30 2020]: solving for steady state
+[Thu Jul 02 13:09:30 2020]: trying newton's method
+[Thu Jul 02 13:09:30 2020]: try solving time series
+[Thu Jul 02 13:09:30 2020]: reached stable steady state
+[Thu Jul 02 13:09:30 2020]: continuing kp1
+[Thu Jul 02 13:09:30 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:30 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:30 2020]: LibAUTO run time: 0.11 s
+[Thu Jul 02 13:09:30 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:09:30 2020]: LibAUTO: thread started
+[Thu Jul 02 13:09:30 2020]: LibAUTO run time: 0.015 s
+[Thu Jul 02 13:09:30 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:09:30 2020]: kp1 took 0.282 seconds (0.282 for actual continuation)
+[Thu Jul 02 13:09:30 2020]: run complete (0.282 s)
+[Thu Jul 02 13:09:30 2020]: done running
+[Thu Jul 02 13:09:30 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:10:06 2020]: link received run message, reading in 4004 bytes of o8r text
+[Thu Jul 02 13:10:06 2020]: ignoring notes in o8r
+[Thu Jul 02 13:10:06 2020]: ignoring plots in o8r
+[Thu Jul 02 13:10:06 2020]: running...
+[Thu Jul 02 13:10:06 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:10:06 2020]: ignoring xprops
+[Thu Jul 02 13:10:06 2020]: solving for steady state
+[Thu Jul 02 13:10:06 2020]: trying newton's method
+[Thu Jul 02 13:10:06 2020]: try solving time series
+[Thu Jul 02 13:10:06 2020]: reached stable steady state
+[Thu Jul 02 13:10:06 2020]: continuing kp1
+[Thu Jul 02 13:10:06 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:10:06 2020]: LibAUTO: thread started
+[Thu Jul 02 13:10:06 2020]: LibAUTO run time: 0.078 s
+[Thu Jul 02 13:10:06 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:10:06 2020]: LibAUTO: thread started
+[Thu Jul 02 13:10:07 2020]: LibAUTO run time: 0.015 s
+[Thu Jul 02 13:10:07 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:10:07 2020]: kp1 took 0.266 seconds (0.266 for actual continuation)
+[Thu Jul 02 13:10:07 2020]: run complete (0.266 s)
+[Thu Jul 02 13:10:07 2020]: done running
+[Thu Jul 02 13:10:07 2020]: returning (roughly) 1147 log bytes to client
+[Thu Jul 02 13:11:16 2020]: link received run message, reading in 3089 bytes of o8r text
+[Thu Jul 02 13:11:16 2020]: ignoring notes in o8r
+[Thu Jul 02 13:11:16 2020]: ignoring plots in o8r
+[Thu Jul 02 13:11:16 2020]: running...
+[Thu Jul 02 13:11:16 2020]: running a time series
+[Thu Jul 02 13:11:16 2020]: will run for 5000 time units, 10000 points
+[Thu Jul 02 13:11:16 2020]: returning 400040 data bytes to client
+[Thu Jul 02 13:11:16 2020]: run complete (0.078 s)
+[Thu Jul 02 13:11:16 2020]: done running
+[Thu Jul 02 13:11:16 2020]: returning (roughly) 507 log bytes to client
+[Thu Jul 02 13:11:46 2020]: link received run message, reading in 3992 bytes of o8r text
+[Thu Jul 02 13:11:46 2020]: ignoring notes in o8r
+[Thu Jul 02 13:11:46 2020]: ignoring plots in o8r
+[Thu Jul 02 13:11:46 2020]: running...
+[Thu Jul 02 13:11:46 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:11:46 2020]: ignoring xprops
+[Thu Jul 02 13:11:46 2020]: solving for steady state
+[Thu Jul 02 13:11:46 2020]: trying newton's method
+[Thu Jul 02 13:11:46 2020]: try solving time series
+[Thu Jul 02 13:11:46 2020]: reached stable steady state
+[Thu Jul 02 13:11:46 2020]: continuing kp1
+[Thu Jul 02 13:11:46 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:11:46 2020]: LibAUTO: thread started
+[Thu Jul 02 13:11:46 2020]: LibAUTO run time: 0.094 s
+[Thu Jul 02 13:11:46 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:11:46 2020]: LibAUTO: thread started
+[Thu Jul 02 13:11:46 2020]: LibAUTO run time: 0.048 s
+[Thu Jul 02 13:11:47 2020]: returning 260 data bytes to client
+[Thu Jul 02 13:11:47 2020]: kp1 took 0.235 seconds (0.235 for actual continuation)
+[Thu Jul 02 13:11:47 2020]: run complete (0.235 s)
+[Thu Jul 02 13:11:47 2020]: done running
+[Thu Jul 02 13:11:47 2020]: returning (roughly) 1147 log bytes to client
+[Thu Jul 02 13:12:44 2020]: link received run message, reading in 3087 bytes of o8r text
+[Thu Jul 02 13:12:44 2020]: ignoring notes in o8r
+[Thu Jul 02 13:12:44 2020]: ignoring plots in o8r
+[Thu Jul 02 13:12:44 2020]: running...
+[Thu Jul 02 13:12:44 2020]: running a time series
+[Thu Jul 02 13:12:44 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:12:44 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:12:44 2020]: run complete (0.047 s)
+[Thu Jul 02 13:12:44 2020]: done running
+[Thu Jul 02 13:12:44 2020]: returning (roughly) 504 log bytes to client
+[Thu Jul 02 13:12:57 2020]: link received run message, reading in 3991 bytes of o8r text
+[Thu Jul 02 13:12:57 2020]: ignoring notes in o8r
+[Thu Jul 02 13:12:57 2020]: ignoring plots in o8r
+[Thu Jul 02 13:12:57 2020]: running...
+[Thu Jul 02 13:12:57 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:12:57 2020]: ignoring xprops
+[Thu Jul 02 13:12:57 2020]: solving for steady state
+[Thu Jul 02 13:12:57 2020]: trying newton's method
+[Thu Jul 02 13:12:57 2020]: try solving time series
+[Thu Jul 02 13:12:57 2020]: reached stable steady state
+[Thu Jul 02 13:12:57 2020]: continuing ki
+[Thu Jul 02 13:12:57 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:12:57 2020]: LibAUTO: thread started
+[Thu Jul 02 13:12:58 2020]: LibAUTO run time: 0.156 s
+[Thu Jul 02 13:12:58 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:12:58 2020]: LibAUTO: thread started
+[Thu Jul 02 13:12:58 2020]: LibAUTO run time: 0.047 s
+[Thu Jul 02 13:12:58 2020]: returning 8996 data bytes to client
+[Thu Jul 02 13:12:58 2020]: ki took 0.375 seconds (0.375 for actual continuation)
+[Thu Jul 02 13:12:58 2020]: run complete (0.375 s)
+[Thu Jul 02 13:12:58 2020]: done running
+[Thu Jul 02 13:12:58 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:13:11 2020]: link received run message, reading in 3922 bytes of o8r text
+[Thu Jul 02 13:13:11 2020]: ignoring notes in o8r
+[Thu Jul 02 13:13:11 2020]: ignoring plots in o8r
+[Thu Jul 02 13:13:11 2020]: running...
+[Thu Jul 02 13:13:11 2020]: running a time series
+[Thu Jul 02 13:13:11 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:13:11 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:13:11 2020]: run complete (0 s)
+[Thu Jul 02 13:13:11 2020]: done running
+[Thu Jul 02 13:13:11 2020]: returning (roughly) 500 log bytes to client
+[Thu Jul 02 13:13:30 2020]: link received run message, reading in 3168 bytes of o8r text
+[Thu Jul 02 13:13:30 2020]: ignoring notes in o8r
+[Thu Jul 02 13:13:30 2020]: ignoring plots in o8r
+[Thu Jul 02 13:13:30 2020]: running...
+[Thu Jul 02 13:13:30 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:13:30 2020]: ignoring xprops
+[Thu Jul 02 13:13:30 2020]: solving for steady state
+[Thu Jul 02 13:13:30 2020]: trying newton's method
+[Thu Jul 02 13:13:30 2020]: try solving time series
+[Thu Jul 02 13:13:30 2020]: reached stable steady state
+[Thu Jul 02 13:13:30 2020]: continuing ki
+[Thu Jul 02 13:13:30 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:13:30 2020]: LibAUTO: thread started
+[Thu Jul 02 13:13:31 2020]: LibAUTO run time: 0.312 s
+[Thu Jul 02 13:13:31 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:13:31 2020]: LibAUTO: thread started
+[Thu Jul 02 13:13:31 2020]: LibAUTO run time: 0.062 s
+[Thu Jul 02 13:13:31 2020]: returning 9100 data bytes to client
+[Thu Jul 02 13:13:31 2020]: ki took 0.719 seconds (0.719 for actual continuation)
+[Thu Jul 02 13:13:31 2020]: run complete (0.719 s)
+[Thu Jul 02 13:13:31 2020]: done running
+[Thu Jul 02 13:13:31 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:14:18 2020]: link received run message, reading in 3058 bytes of o8r text
+[Thu Jul 02 13:14:18 2020]: ignoring notes in o8r
+[Thu Jul 02 13:14:18 2020]: ignoring plots in o8r
+[Thu Jul 02 13:14:18 2020]: running...
+[Thu Jul 02 13:14:18 2020]: running a time series
+[Thu Jul 02 13:14:18 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:14:19 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:14:19 2020]: run complete (0.094 s)
+[Thu Jul 02 13:14:19 2020]: done running
+[Thu Jul 02 13:14:19 2020]: returning (roughly) 504 log bytes to client
+[Thu Jul 02 13:14:23 2020]: link received run message, reading in 3893 bytes of o8r text
+[Thu Jul 02 13:14:23 2020]: ignoring notes in o8r
+[Thu Jul 02 13:14:23 2020]: ignoring plots in o8r
+[Thu Jul 02 13:14:23 2020]: running...
+[Thu Jul 02 13:14:23 2020]: running a time series
+[Thu Jul 02 13:14:23 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:14:23 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:14:23 2020]: run complete (0 s)
+[Thu Jul 02 13:14:23 2020]: done running
+[Thu Jul 02 13:14:23 2020]: returning (roughly) 500 log bytes to client
+[Thu Jul 02 13:14:37 2020]: link received run message, reading in 3134 bytes of o8r text
+[Thu Jul 02 13:14:37 2020]: ignoring notes in o8r
+[Thu Jul 02 13:14:37 2020]: ignoring plots in o8r
+[Thu Jul 02 13:14:37 2020]: running...
+[Thu Jul 02 13:14:37 2020]: running a time series
+[Thu Jul 02 13:14:37 2020]: will run for 500 time units, 1000 points
+[Thu Jul 02 13:14:38 2020]: returning 40040 data bytes to client
+[Thu Jul 02 13:14:38 2020]: run complete (0.016 s)
+[Thu Jul 02 13:14:38 2020]: done running
+[Thu Jul 02 13:14:38 2020]: returning (roughly) 504 log bytes to client
+[Thu Jul 02 13:14:48 2020]: link received run message, reading in 3216 bytes of o8r text
+[Thu Jul 02 13:14:48 2020]: ignoring notes in o8r
+[Thu Jul 02 13:14:48 2020]: ignoring plots in o8r
+[Thu Jul 02 13:14:48 2020]: running...
+[Thu Jul 02 13:14:48 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:14:48 2020]: ignoring xprops
+[Thu Jul 02 13:14:48 2020]: solving for steady state
+[Thu Jul 02 13:14:48 2020]: trying newton's method
+[Thu Jul 02 13:14:48 2020]: try solving time series
+[Thu Jul 02 13:14:48 2020]: reached stable steady state
+[Thu Jul 02 13:14:48 2020]: continuing ki
+[Thu Jul 02 13:14:48 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:14:48 2020]: LibAUTO: thread started
+[Thu Jul 02 13:14:48 2020]: LibAUTO run time: 0.172 s
+[Thu Jul 02 13:14:48 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:14:48 2020]: LibAUTO: thread started
+[Thu Jul 02 13:14:48 2020]: LibAUTO run time: 0.046 s
+[Thu Jul 02 13:14:48 2020]: returning 9204 data bytes to client
+[Thu Jul 02 13:14:48 2020]: ki took 0.359 seconds (0.359 for actual continuation)
+[Thu Jul 02 13:14:48 2020]: run complete (0.359 s)
+[Thu Jul 02 13:14:48 2020]: done running
+[Thu Jul 02 13:14:48 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:14:55 2020]: link received run message, reading in 4076 bytes of o8r text
+[Thu Jul 02 13:14:55 2020]: ignoring notes in o8r
+[Thu Jul 02 13:14:55 2020]: ignoring plots in o8r
+[Thu Jul 02 13:14:55 2020]: running...
+[Thu Jul 02 13:14:55 2020]: running a one parameter bifurcation
+[Thu Jul 02 13:14:55 2020]: ignoring xprops
+[Thu Jul 02 13:14:55 2020]: solving for steady state
+[Thu Jul 02 13:14:55 2020]: trying newton's method
+[Thu Jul 02 13:14:55 2020]: try solving time series
+[Thu Jul 02 13:14:55 2020]: reached stable steady state
+[Thu Jul 02 13:14:55 2020]: continuing ki
+[Thu Jul 02 13:14:55 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:14:55 2020]: LibAUTO: thread started
+[Thu Jul 02 13:14:55 2020]: LibAUTO run time: 0.141 s
+[Thu Jul 02 13:14:55 2020]: LibAUTO: starting thread
+[Thu Jul 02 13:14:55 2020]: LibAUTO: thread started
+[Thu Jul 02 13:14:55 2020]: LibAUTO run time: 0.047 s
+[Thu Jul 02 13:14:56 2020]: returning 9204 data bytes to client
+[Thu Jul 02 13:14:56 2020]: ki took 0.406 seconds (0.406 for actual continuation)
+[Thu Jul 02 13:14:56 2020]: run complete (0.406 s)
+[Thu Jul 02 13:14:56 2020]: done running
+[Thu Jul 02 13:14:56 2020]: returning (roughly) 1146 log bytes to client
+[Thu Jul 02 13:19:45 2020]: ERROR: o8core link error: socket operation failed
+[Thu Jul 02 13:19:45 2020]: ERROR: 
+[Thu Jul 02 13:19:45 2020]: ERROR: (module o8core link exception) Terminating link
+failed at Link.cpp:387
+[Thu Jul 02 13:19:45 2020]: link outfifo: waiting for thread to finish...
+[Thu Jul 02 13:19:45 2020]: link outfifo run time: 912.703 s
+[Thu Jul 02 13:19:45 2020]: o8core link run time: 912.703 s
+[Thu Jul 02 13:19:45 2020]: ERROR: exception was caught while running module o8core link
+[Thu Jul 02 13:19:45 2020]: link outfifo: 705072 bytes in, 705072 bytes out
+[Thu Jul 02 13:19:45 2020]: all done!
