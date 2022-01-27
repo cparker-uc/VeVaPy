@@ -3,7 +3,7 @@
 #   steps to improve readability in the model notebooks
 # Author: Christopher Parker
 # Created: Mon Jan 24, 2022 | 03:39P EST
-# Last Modified: Tue Jan 25, 2022 | 03:04P EST
+# Last Modified: Thu Jan 27, 2022 | 09:31P EST
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
 #                           GNU GPL LICENSE                            #
@@ -29,14 +29,16 @@
 import scipy.integrate as sci
 import numpy as np
 
-def solve(ode_system, ics, t_start, t_step, t_end, y_index1, y_index2, tau1 = 0, tau2 = 0, delay = False):
+def solve(ode_system, ics, t_start, t_step, t_end, y_index0 = 0, y_index1 = 1, y_index2 = 2, tau0 = 0, tau1 = 0, tau2 = 0, delay = [False, False, False], delay_rough = False):
     # Define global variables for delayed ACTH and CORT values.
-    if delay:
-        global delayedACTH, delayedCORT 
+    if delay[0] or delay[1] or delay[2]:
+        global delayedCRH, delayedACTH, delayedCORT
+        delayedCRH = ics[y_index0]
         delayedACTH = ics[y_index1]
         delayedCORT = ics[y_index2]
         # These variables will be used to hold the previous index in the time
         #  array at which we found the delayed values of ACTH and CORT, resp.
+        t_index0 = 0
         t_index1 = 0
         t_index2 = 0
 
@@ -49,11 +51,31 @@ def solve(ode_system, ics, t_start, t_step, t_end, y_index1, y_index2, tau1 = 0,
     solver.set_initial_value(ics, t_start)
 
     while solver.successful() and solver.t < t_end:
-        # If the user sets the delay flag to True, we compute the delayed 
-        #  values of ACTH and CORT.
-        if delay:
+        # We also check whether the delay_rough flag is set, and depending on this
+        #  we either run the normal version of the delay functions or the _rough
+        #  version.
+        # If the user sets the index 0 delay flag to True, we compute the delayed 
+        #  value of CRH
+        if delay[0] and delay_rough:
+            delayedCRH, t_index0 = delay_CRH_rough(solver.t, tau0, ts, ys, ics, t_index0, y_index0)
+        elif delay[0] and not delay_rough:
+            delayedCRH, t_index0 = delay_CRH(solver.t, tau0, ts, ys, ics, t_index0, y_index0)
+
+        # If the user sets the index 1 delay flag to True, we compute
+        #  the delayed value of ACTH
+        if delay[1] and delay_rough:
+            delayedACTH, t_index1 = delay_ACTH_rough(solver.t, tau1, ts, ys, ics, t_index1, y_index1)
+        elif delay[1] and not delay_rough:
             delayedACTH, t_index1 = delay_ACTH(solver.t, tau1, ts, ys, ics, t_index1, y_index1)
+
+        # If the user sets the index 2 delay flag to True, we compute the delayed
+        #  value of CORT
+        if delay[2] and delay_rough:
+            delayedCORT, t_index2 = delay_CORT_rough(solver.t, tau2, ts, ys, ics, t_index2, y_index2)
+        elif delay[2] and not delay_rough:
             delayedCORT, t_index2 = delay_CORT(solver.t, tau2, ts, ys, ics, t_index2, y_index2)
+
+
         solver.integrate(solver.t + t_step)
         ts.append(solver.t)
         ys.append(solver.y)
@@ -172,6 +194,47 @@ def delay_ACTH(t, tau1, ts, ys, ics, t_index1, y_index1):
 
     return delayedACTH, t_index1
 
+# In case any model needs to use delayed values for CRH, we will include a 
+#  function here to find those--it will be just like the ACTH delay function
+def delay_CRH(t, tau0, ts, ys, ics, t_index0, y_index0):
+    t_round = t - t%0.01
+    t_tau0 = np.arange(t_round - tau0 - 0.5, t_round - tau0 + 0.5, 0.5)
+
+    if t_round > tau0:
+        for ts_index, ts_item in enumerate(ts[t_index0:]):
+            if (ts_item - ts_item%0.5) == (t_round - tau0 - (t_round - tau0)%0.5):
+                delayedCRH = ys[ts_index + t_index0][y_index0]
+                t_index0 = ts_index + t_index0
+                break
+        else:
+            for ts_index, ts_item in enumerate(ts[t_index0:]):
+                for ttau0_item in t_tau0:
+                    if (ts_item - ts_item%0.5) == (ttau0_item - ttau0_item%0.5):
+                        delayedCRH = ys[ts_index + t_index0][y_index0]
+                        t_index0 = ts_index + t_index0
+                        break
+                else:
+                    continue
+                break
+            else:
+                t_tau0 = np.arange(t_round - tau0 - 1, t_round - tau0 + 1, 0.5)
+                for ts_index, ts_item in enumerate(ts[t_index0:]):
+                    for ttau0_item in t_tau0:
+                        if (ts_item - ts_item%0.5) == (ttau0_item - ttau0_item%0.5):
+                            delayedCRH = ys[ts_index + t_index0][y_index0]
+                            t_index0 = ts_index + t_index0
+                            break
+                    else:
+                        continue
+                    break
+                else:
+                    delayedCRH = ics[y_index0]
+                    print("No match for y[{}] delayed by tau0 within 1 minute.".format(y_index0))
+    else:
+        delayedCRH = ics[y_index0]
+
+    return delayedCRH
+
 # Same as delay_ACTH, but for tau2 now (which is a longer delay) and now we are 
 #  concerned with setting y[2], since the tau2 delay is the delay in 
 #  cortisol action.
@@ -218,6 +281,8 @@ def delay_CORT(t, tau2, ts, ys, ics, t_index2, y_index2):
 
     return delayedCORT, t_index2
 
+# These functions check fewer time steps around t_round - tau1 in order to improve
+#  runtime. Other than using %0.5 instead of %0.01, the functions are identical.
 def delay_ACTH_rough(t, tau1, ts, ys, ics, t_index1, y_index1):
     t_round = t - t%0.5
     t_tau1 = np.arange(t_round - tau1 - 0.5, t_round - tau1 + 0.5, 0.5)
@@ -226,12 +291,14 @@ def delay_ACTH_rough(t, tau1, ts, ys, ics, t_index1, y_index1):
         for ts_index, ts_item in enumerate(ts[t_index1:]):
             if (ts_item - ts_item%0.5) == (t_round - tau1 - (t_round - tau1)%0.5):
                 delayedACTH = ys[ts_index + t_index1][y_index1]
+                t_index1 = ts_index + t_index1
                 break
         else:
             for ts_index, ts_item in enumerate(ts[t_index1:]):
                 for ttau1_item in t_tau1:
                     if (ts_item - ts_item%0.5) == (ttau1_item - ttau1_item%0.5):
                         delayedACTH = ys[ts_index + t_index1][y_index1]
+                        t_index1 = ts_index + t_index1
                         break
                 else:
                     continue
@@ -243,6 +310,7 @@ def delay_ACTH_rough(t, tau1, ts, ys, ics, t_index1, y_index1):
                     for ttau1_item in t_tau1:
                         if (ts_item - ts_item%0.5) == (ttau1_item - ttau1_item%0.5):
                             delayedACTH = ys[ts_index + t_index1][y_index1]
+                            t_index1 = ts_index + t_index1
                             break
                     else:
                         continue
@@ -255,6 +323,45 @@ def delay_ACTH_rough(t, tau1, ts, ys, ics, t_index1, y_index1):
 
     return delayedACTH, t_index1
 
+def delay_CRH_rough(t, tau0, ts, ys, ics, t_index0, y_index0):
+    t_round = t - t%0.5
+    t_tau0 = np.arange(t_round - tau0 - 0.5, t_round - tau0 + 0.5, 0.5)
+
+    if t_round > tau0:
+        for ts_index, ts_item in enumerate(ts[t_index0:]):
+            if (ts_item - ts_item%0.5) == (t_round - tau0 - (t_round - tau0)%0.5):
+                delayedCRH = ys[ts_index + t_index0][y_index0]
+                t_index0 = ts_index + t_index0
+                break
+        else:
+            for ts_index, ts_item in enumerate(ts[t_index0:]):
+                for ttau0_item in t_tau0:
+                    if (ts_item - ts_item%0.5) == (ttau0_item - ttau0_item%0.5):
+                        delayedCRH = ys[ts_index + t_index0][y_index0]
+                        t_index0 = ts_index + t_index0
+                        break
+                else:
+                    continue
+                break
+            else:
+                t_tau0 = np.arange(t_round - tau0 - 1, t_round - tau0 + 1, 0.5)
+                for ts_index, ts_item in enumerate(ts[t_index0:]):
+                    for ttau0_item in t_tau0:
+                        if (ts_item - ts_item%0.5) == (ttau0_item - ttau0_item%0.5):
+                            delayedCRH = ys[ts_index + t_index0][y_index0]
+                            t_index0 = ts_index + t_index0
+                            break
+                    else:
+                        continue
+                    break
+                else:
+                    delayedCRH = ics[y_index0]
+                    print("No match for y[{}] delayed by tau0 within 1 minute.".format(y_index0))
+    else:
+        delayedCRH = ics[y_index0]
+
+    return delayedCRH, t_index0
+
 def delay_CORT_rough(t, tau2, ts, ys, ics, t_index2, y_index2):
     t_round = t - t%0.5
     t_tau2 = np.arange(t_round - tau2 - 0.5, t_round - tau2 + 0.5, 0.5)
@@ -263,12 +370,14 @@ def delay_CORT_rough(t, tau2, ts, ys, ics, t_index2, y_index2):
         for ts_index, ts_item in enumerate(ts[t_index2:]):
             if (ts_item - ts_item%0.5) == (t_round - tau2 - (t_round - tau2)%0.5):
                 delayedCORT = ys[ts_index + t_index2][y_index2]
+                t_index2 = ts_index + t_index2
                 break
         else:
             for ts_index, ts_item in enumerate(ts[t_index2:]):
                 for ttau2_item in t_tau2:
                     if (ts_item - ts_item%0.5) == (ttau2_item - ttau2_item%0.5):
                         delayedCORT = ys[ts_index + t_index2][y_index2]
+                        t_index2 = ts_index + t_index2
                         break
                 else:
                     continue
@@ -279,6 +388,7 @@ def delay_CORT_rough(t, tau2, ts, ys, ics, t_index2, y_index2):
                     for ttau2_item in t_tau2:
                         if (ts_item - ts_item%0.5) == (ttau2_item - ttau2_item%0.5):
                             delayedCORT = ys[ts_index + t_index2][y_index2]
+                            t_index2 = ts_index + t_index2
                             break
                     else:
                         continue
