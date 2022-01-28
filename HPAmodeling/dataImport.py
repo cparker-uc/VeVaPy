@@ -277,6 +277,7 @@ def bremner():
 def nelson():
     ACTH_data = np.genfromtxt("tsst_acth_nelson.txt")
     cortisol_data = np.genfromtxt("tsst_cort_nelson.txt")
+    subtypes = np.genfromtxt("nelson-MDD-subtypes.txt")
 
     ACTH_mean = np.zeros(11)
     cortisol_mean = np.zeros(11)
@@ -308,7 +309,103 @@ def nelson():
             ACTH[j,i+2] = ACTH_data[i,j+1]
             cortisol[j,i+2] = cortisol_data[i,j+1]
 
-    return cortisol, ACTH
+    # Make lists of the indices in the ACTH and CORT arrays at which each
+    #  subtype of patients are found
+    atypical_indices = []
+    melancholic_indices = []
+    neither_indices = []
+    healthy_indices = []
+
+    for index, item in enumerate(subtypes[:,1]):
+        if item == 1:
+            atypical_indices.append(index)
+        elif item == 2:
+            melancholic_indices.append(index)
+        elif item == 3:
+            neither_indices.append(index)
+        elif item == 4:
+            healthy_indices.append(index)
+
+    # create lists of the indices in the ACTH and CORT arrays for each subtype
+    #  (we need to shift by 2 columns, because of the time column and mean
+    #  concentrations columns), and the patient IDs of the patients in each
+    #  subtype
+    atypical_ids = []
+    melancholic_ids = []
+    neither_ids = []
+    healthy_ids = []
+    for idx, item in enumerate(atypical_indices):
+        atypical_indices[idx] += 2
+        atypical_ids.append(subtypes[item,0])
+    for idx, item in enumerate(melancholic_indices):
+        melancholic_indices[idx] += 2
+        melancholic_ids.append(subtypes[item,0])
+    for idx, item in enumerate(neither_indices):
+        neither_indices[idx] += 2
+        neither_ids.append(subtypes[item,0])
+    for idx, item in enumerate(healthy_indices):
+        healthy_indices[idx] += 2
+        healthy_ids.append(subtypes[item,0])
+
+    # create lists of the patients' data arrays for ACTH & CORT for each subtype
+
+    # create lists of arrays of atypical patient CORT and ACTH data
+    nelsonAtypicalCORTList = []
+    nelsonAtypicalACTHList = []
+    for idx in atypical_indices:
+        nelsonAtypicalCORTList.append(cortisol[:,idx])
+        nelsonAtypicalACTHList.append(ACTH[:,idx])
+
+    # combine the lists of arrays into 2d arrays and transpose them so that 
+    #  each patients' data is in a column
+    nelsonAtypicalCORT = np.vstack(nelsonAtypicalCORTList)
+    nelsonAtypicalCORT = np.transpose(nelsonAtypicalCORT)
+    nelsonAtypicalACTH = np.vstack(nelsonAtypicalACTHList)
+    nelsonAtypicalACTH = np.transpose(nelsonAtypicalACTH)
+
+    # create lists of arrays of melancholic patient CORT and ACTH data
+    nelsonMelancholicCORTList = []
+    nelsonMelancholicACTHList = []
+    for idx in melancholic_indices:
+        nelsonMelancholicCORTList.append(cortisol[:,idx])
+        nelsonMelancholicACTHList.append(ACTH[:,idx])
+
+    # combine the lists of arrays into 2d arrays and transpose them so that 
+    #  each patients' data is in a column
+    nelsonMelancholicCORT = np.vstack(nelsonMelancholicCORTList)
+    nelsonMelancholicCORT = np.transpose(nelsonMelancholicCORT)
+    nelsonMelancholicACTH = np.vstack(nelsonMelancholicACTHList)
+    nelsonMelancholicACTH = np.transpose(nelsonMelancholicACTH)
+
+    # create lists of arrays of neither atypical nor melancholic MDD patient CORT and ACTH data
+    nelsonNeitherCORTList = []
+    nelsonNeitherACTHList = []
+    for idx in neither_indices:
+        nelsonNeitherCORTList.append(cortisol[:,idx])
+        nelsonNeitherACTHList.append(ACTH[:,idx])
+
+    # combine the lists of arrays into 2d arrays and transpose them so that 
+    #  each patients' data is in a column
+    nelsonNeitherCORT = np.vstack(nelsonNeitherCORTList)
+    nelsonNeitherCORT = np.transpose(nelsonNeitherCORT)
+    nelsonNeitherACTH = np.vstack(nelsonNeitherACTHList)
+    nelsonNeitherACTH = np.transpose(nelsonNeitherACTH)
+
+    # create lists of arrays of healthy patient CORT and ACTH data
+    nelsonHealthyCORTList = []
+    nelsonHealthyACTHList = []
+    for idx in healthy_indices:
+        nelsonHealthyCORTList.append(cortisol[:,idx])
+        nelsonHealthyACTHList.append(ACTH[:,idx])
+
+    # combine the lists of arrays into 2d arrays and transpose them so that 
+    #  each patients' data is in a column
+    nelsonHealthyCORT = np.vstack(nelsonHealthyCORTList)
+    nelsonHealthyCORT = np.transpose(nelsonHealthyCORT)
+    nelsonHealthyACTH = np.vstack(nelsonHealthyACTHList)
+    nelsonHealthyACTH = np.transpose(nelsonHealthyACTH)
+
+    return cortisol, ACTH, nelsonAtypicalCORT, nelsonAtypicalACTH, nelsonMelancholicCORT, nelsonMelancholicACTH, nelsonNeitherCORT, nelsonNeitherACTH, nelsonHealthyCORT, nelsonHealthyACTH
 
 def patientF():
     cortisol = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
