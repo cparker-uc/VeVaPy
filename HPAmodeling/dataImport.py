@@ -405,7 +405,7 @@ def nelson():
     nelsonHealthyACTH = np.vstack(nelsonHealthyACTHList)
     nelsonHealthyACTH = np.transpose(nelsonHealthyACTH)
 
-    return cortisol, ACTH, nelsonAtypicalCORT, nelsonAtypicalACTH, nelsonMelancholicCORT, nelsonMelancholicACTH, nelsonNeitherCORT, nelsonNeitherACTH, nelsonHealthyCORT, nelsonHealthyACTH
+    return cortisol, ACTH, nelsonAtypicalCORT, nelsonAtypicalACTH, nelsonMelancholicCORT, nelsonMelancholicACTH, nelsonNeitherCORT, nelsonNeitherACTH, nelsonHealthyCORT, nelsonHealthyACTH, atypical_ids, melancholic_ids, neither_ids, healthy_ids
 
 def patientF():
     cortisol = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
