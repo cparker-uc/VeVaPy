@@ -3,7 +3,7 @@
 #   steps to improve readability in the model notebooks
 # Author: Christopher Parker
 # Created: Mon Jan 24, 2022 | 03:39P EST
-# Last Modified: Thu Jan 27, 2022 | 12:59P EST
+# Last Modified: Fri Feb 04, 2022 | 12:58P EST
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
 #                           GNU GPL LICENSE                            #
@@ -29,7 +29,7 @@
 import scipy.integrate as sci
 import numpy as np
 
-def solve(ode_system, ics, t_start, t_step, t_end, y_index0 = 0, y_index1 = 1, y_index2 = 2, tau0 = 0, tau1 = 0, tau2 = 0, delay = [False, False, False], delay_rough = False):
+def solve(ode_system, ics, t_start, t_step, t_end, ode_steps = 100000, ode_atol = 3e-12, ode_rtol = 1e-12, y_index0 = 0, y_index1 = 1, y_index2 = 2, tau0 = 0, tau1 = 0, tau2 = 0, delay = [False, False, False], delay_rough = False):
     # Define global variables for delayed ACTH and CORT values.
     if delay[0] or delay[1] or delay[2]:
         global delayedCRH, delayedACTH, delayedCORT
@@ -47,7 +47,7 @@ def solve(ode_system, ics, t_start, t_step, t_end, y_index0 = 0, y_index1 = 1, y
     ys = []
 
     solver = sci.ode(ode_system)
-    solver.set_integrator('vode', method='bdf', atol=3e-12, rtol=1e-12, nsteps=100000)
+    solver.set_integrator('vode', method='bdf', atol = ode_atol, rtol = ode_rtol, nsteps=ode_steps)
     solver.set_initial_value(ics, t_start)
 
     while solver.successful() and solver.t < t_end:
