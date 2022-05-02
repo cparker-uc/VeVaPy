@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Binder Setup](#binderSetup)
 2. [Model Selection](#modelSelection)
-3. [Requirements to Run Models Locally](#localRequirements)
+3. [Dependencies Required to Run Models Locally](#localDependencies)
 4. [General Instructions](#generalInstructions)
 
 
@@ -41,7 +41,7 @@ This repository contains quite a few different models, each in their own Jupyter
 | Stanojevic-2018-nanomolar.ipynb       | A. Stanojevic, V.M. Markovic, Z. Cupic, L. Kolar-Anic & V. Vukojevic                                             | 2018 | Same as Stanojevic-2018.ipynb but with units converted to nanomolar for increased accuracy when computing cost function (because molar units lead to very small concentration values which introduced extra rounding errors).  |
 | Vinther-2011.ipynb                    | F. Vinther, M. Andersen & J.T. Ottesen                                                                           | 2011 | Described by the authors as the "Minimal Model of the HPA Axis," this is a very bare-bones model and thus does not perform well on validation against real-world basal data (haven't tested with TSST data).                   |
 
-## Requirements to Run Models Locally <a name="localRequirements" />
+## Dependencies Required to Run Models Locally <a name="localDependencies" />
 If you would prefer to run the models on your local machine, rather than in a Binder environment, the requirements listed in the following table will need to be met.
 
 | Software   | Version | URL                                                         |
@@ -56,4 +56,4 @@ If you would prefer to run the models on your local machine, rather than in a Bi
 | tabulate   | 0.8.9   | https://pypi.org/project/tabulate/                          |
 
 ## General Instructions <a name="generalInstructions" />
-The following instructions will explain how to run simulations with the models included in this repository after you have 
+Once you have set up a Binder environment or installed all of the dependencies locally, open any of the model files and select "Instructions" from the Table of Contents. Each model has instructions tailored to its specific needs, although they are largely the same. Good luck, and have fun!
