@@ -3,13 +3,14 @@
 ## Table of Contents
 1. [Binder Setup](#binderSetup)
 2. [Model Selection](#modelSelection)
-3. [General Instructions](#generalInstructions)
-4. [Requirements to Run Models Locally](#localRequirements)
+3. [Requirements to Run Models Locally](#localRequirements)
+4. [General Instructions](#generalInstructions)
+
 
 ## Binder Setup <a name="binderSetup"/>
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cparker-uc/PTSD/HEAD)
 
-Clicking the link above will open this repository in Binder, which allows you to run all of the Jupyter notebook files in your web browser without needing to have any software installed.
+Clicking the "Launch Binder" link above will open this repository in Binder, which allows you to run all of the Jupyter notebook files in your web browser without needing to have any software installed.
 
 However, the Binder environment will require some setup in order to get the models running properly (I apologize if these instructions are too long-winded, but I want to make sure that anyone can use my code!). Once the environment has fully loaded, you will see the home screen with the file browser on the left and the Launcher on the right. In the bottom row of Launcher icons, there is a black box with $\_ shown in it, and it says Terminal--click on it.
 
@@ -39,6 +40,20 @@ This repository contains quite a few different models, each in their own Jupyter
 | Stanojevic-2018-micromolar.ipynb      | A. Stanojevic, V.M. Markovic, Z. Cupic, L. Kolar-Anic & V. Vukojevic                                             | 2018 | Same as Stanojevic-2018.ipynb but with units converted to micromolar for increased accuracy when computing cost function (because molar units lead to very small concentration values which introduced extra rounding errors). |
 | Stanojevic-2018-nanomolar.ipynb       | A. Stanojevic, V.M. Markovic, Z. Cupic, L. Kolar-Anic & V. Vukojevic                                             | 2018 | Same as Stanojevic-2018.ipynb but with units converted to nanomolar for increased accuracy when computing cost function (because molar units lead to very small concentration values which introduced extra rounding errors).  |
 | Vinther-2011.ipynb                    | F. Vinther, M. Andersen & J.T. Ottesen                                                                           | 2011 | Described by the authors as the "Minimal Model of the HPA Axis," this is a very bare-bones model and thus does not perform well on validation against real-world basal data (haven't tested with TSST data).                   |
-## General Instructions <a name="generalInstructions" />
 
 ## Requirements to Run Models Locally <a name="localRequirements" />
+If you would prefer to run the models on your local machine, rather than in a Binder environment, the requirements listed in the following table will need to be met.
+
+| Software   | Version | URL                                                         |
+|------------|---------|-------------------------------------------------------------|
+| Python     | 3.7.7   | https://www.python.org/downloads/                           |
+| Jupyterlab | 2.1.5   | https://www.jupyter.org/install                             |
+| NumPy      | 1.21.5  | https://numpy.org/install/                                  |
+| matplotlib | 3.0.1   | https://matplotlib.org/stable/users/installing/index.html   |
+| pandas     | 0.23.4  | https://pandas.pydata.org/docs/getting_started/install.html |
+| mpld3      | 0.5.7   | https://mpld3.github.io/install.html                        |
+| SciPy      | 1.1.0   | https://scipy.org/install/                                  |
+| tabulate   | 0.8.9   | https://pypi.org/project/tabulate/                          |
+
+## General Instructions <a name="generalInstructions" />
+The following instructions will explain how to run simulations with the models included in this repository after you have 
