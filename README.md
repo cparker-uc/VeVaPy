@@ -56,4 +56,4 @@ If you would prefer to run the models on your local machine, rather than in a Bi
 | tabulate   | 0.8.9   | https://pypi.org/project/tabulate/                          |
 
 ## General Instructions <a name="generalInstructions" />
-Once you have set up a Binder environment or installed all of the dependencies locally, open any of the model files and select "Instructions" from the Table of Contents. Each model has instructions tailored to its specific needs, although they are largely the same. Good luck, and have fun!
+Once you have set up a Binder environment or installed all of the dependencies locally, open any of the six models discussed in the paper and select "Instructions" from the Table of Contents. Each model has instructions tailored to its specific needs, although they are largely the same. Good luck, and have fun!
