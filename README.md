@@ -12,14 +12,7 @@
 
 Clicking the "Launch Binder" link above will open this repository in Binder, which allows you to run all of the Jupyter notebook files in your web browser without needing to have any software installed.
 
-However, the Binder environment will require some setup in order to get the models running properly (I apologize if these instructions are too long-winded, but I want to make sure that anyone can use my code!). Once the environment has fully loaded, you will see the home screen with the file browser on the left and the Launcher on the right. In the bottom row of Launcher icons, there is a black box with $\_ shown in it, and it says Terminal--click on it.
-
-Now that you have a Terminal session open, there should be a prompt with a bunch of random characters that ends with :~$ and a blinking black cursor. Copy and paste the following into the Terminal and press Enter:
-
-```
-pip install numpy matplotlib scipy mpld3 tabulate pandas openpyxl
-```
-This will install all of the necessary Python modules to run all of the models included in this repository, and you can now close the Terminal tab and select any model from the file browser on the left. This setup will need to be performed each time you restart the Binder environment, unfortunately.
+The Binder environment will already have all of the necessary Python modules ready, so all you need to do is open a model file and start running simulations.
 
 ## Model Selection <a name="modelSelection" />
 This repository contains quite a few different models, each in their own Jupyter notebook file. Below is a table listing all of the models included with short descriptions of them.
