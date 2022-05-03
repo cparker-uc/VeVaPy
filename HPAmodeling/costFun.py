@@ -4,7 +4,7 @@
 #  as it currently has quite few hardcoded variables
 # Author: Christopher Parker
 # Created: Tue Jan 25, 2022 | 09:26P EST
-# Last Modified: Fri Apr 29, 2022 | 04:21P EDT
+# Last Modified: Mon May 02, 2022 | 05:26P EDT
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                        Modified BSD License                                 #
@@ -80,6 +80,7 @@ def cost(params, time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
         # cost = cortSSE
 
         return cost
+
     except ValueError:
         # In the case that we encounter a ValueError, this means that the ODE
         #  solver quit before computing all time steps up to t_end. The error
@@ -87,4 +88,38 @@ def cost(params, time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
         #  solver quit to spline_ACTH or spline_CORT. So we catch the
         #  ValueError here, and let the user know that the ODE solver exited
         #  early.
+        print("ODE solver did not make it through all data points.")
+
+def cost_noACTH(params, time_CORT, data_CORT, simData):
+    # Compute the mean of the CORT data array
+    mean_CORT = np.mean(data_CORT)
+
+    # Normalize the simData array by the mean value of data set to be matched
+    simNorm_CORT = simData[:,3]/mean_CORT
+
+    # Normalize the data set to be matched, as well
+    dataNorm_CORT = data_CORT/mean_CORT
+
+    # Now, we interpolate between the simulated data points, to ensure we have
+    #  a simulated data point at the exact time of each real-world data point
+    # We are currently doing a linear interpolation, although we could also
+    #  choose to do cubic. however, I don't think it makes a huge amount of
+    #  difference in this context
+    spline_CORT = interp1d(simData[:,0], simNorm_CORT, kind = 'linear')
+
+    # We use a try/except loop to ensure that we don't run into an error that
+    #  causes the entire simulation to fail and have to start over
+    try:
+        # As the data we are matching does not include ACTH values, we simply
+        #  define cost as the SSE between raw data and splines of the CORT array
+        cost = np.sum((spline_CORT(time_CORT) - dataNorm_CORT)**2)
+
+        return cost
+
+    except ValueError:
+        # In the case that we encounter a ValueError, this means that the ODE
+        #  solver quit before computing all time steps up to t_end. The error
+        #  arises when we attempt to plug in a time value after where the 
+        #  solver quit to spline_CORT. So we catch the ValueError here, and let 
+        #  the user know that the ODE solver exited early.
         print("ODE solver did not make it through all data points.")
