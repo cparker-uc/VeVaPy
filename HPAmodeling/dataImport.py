@@ -4,7 +4,7 @@
 #  imports take up the majority of the lines of code in each model right now)
 # Author: Christopher Parker
 # Created: Thu Jan 27, 2022 | 09:38P EST
-# Last Modified: Fri Apr 29, 2022 | 04:23P EDT
+# Last Modified: Tue May 03, 2022 | 04:07P EDT
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                        Modified BSD License                                 #
@@ -49,9 +49,9 @@ def smoothing(a, n = 5):
     return ret[idx:-idx]/n
 
 def yehuda():
-    controlCortisol = np.genfromtxt("yehuda-control-cortisol.txt")
-    PTSDCortisol = np.genfromtxt("yehuda-PTSD-cortisol.txt")
-    depressedCortisol = np.genfromtxt("yehuda-depressed-cortisol.txt")
+    controlCortisol = np.genfromtxt("data_files/yehuda-control-cortisol.txt")
+    PTSDCortisol = np.genfromtxt("data_files/yehuda-PTSD-cortisol.txt")
+    depressedCortisol = np.genfromtxt("data_files/yehuda-depressed-cortisol.txt")
 
     controlCortisol_smooth = controlCortisol
     PTSDCortisol_smooth = PTSDCortisol
@@ -61,20 +61,20 @@ def yehuda():
     PTSDCortisol_smooth[2:-2,1] = smoothing(PTSDCortisol[:,1])
     depressedCortisol_smooth[2:-2,1] = smoothing(depressedCortisol[:,1])
 
-    controlCortisol = np.genfromtxt("yehuda-control-cortisol.txt")
-    PTSDCortisol = np.genfromtxt("yehuda-PTSD-cortisol.txt")
-    depressedCortisol = np.genfromtxt("yehuda-depressed-cortisol.txt")
+    controlCortisol = np.genfromtxt("data_files/yehuda-control-cortisol.txt")
+    PTSDCortisol = np.genfromtxt("data_files/yehuda-PTSD-cortisol.txt")
+    depressedCortisol = np.genfromtxt("data_files/yehuda-depressed-cortisol.txt")
 
     return [controlCortisol, controlCortisol_smooth, PTSDCortisol, PTSDCortisol_smooth, depressedCortisol, depressedCortisol_smooth]
 
 def carroll():
-    controlCortisol = np.genfromtxt("controlGroupCortisolCarroll.txt", dtype = float)
-    HCDepressedCortisol = np.genfromtxt("HCDepressedCortisolCarroll.txt", dtype = float)
-    LCDepressedCortisol = np.genfromtxt("LCDepressedCortisolCarroll.txt", dtype = float)
+    controlCortisol = np.genfromtxt("data_files/controlGroupCortisolCarroll.txt", dtype = float)
+    HCDepressedCortisol = np.genfromtxt("data_files/HCDepressedCortisolCarroll.txt", dtype = float)
+    LCDepressedCortisol = np.genfromtxt("data_files/LCDepressedCortisolCarroll.txt", dtype = float)
 
-    controlACTH = np.genfromtxt("controlGroupACTHCarroll.txt", dtype = float)
-    HCDepressedACTH = np.genfromtxt("HCDepressedACTHCarroll.txt", dtype = float)
-    LCDepressedACTH = np.genfromtxt("LCDepressedACTHCarroll.txt", dtype = float)
+    controlACTH = np.genfromtxt("data_files/controlGroupACTHCarroll.txt", dtype = float)
+    HCDepressedACTH = np.genfromtxt("data_files/HCDepressedACTHCarroll.txt", dtype = float)
+    LCDepressedACTH = np.genfromtxt("data_files/LCDepressedACTHCarroll.txt", dtype = float)
 
     controlCortisol_rearr = np.vstack((controlCortisol[60:,:], controlCortisol[0:60,:]))
     HCDepressedCortisol_rearr = np.vstack((HCDepressedCortisol[60:,:], HCDepressedCortisol[0:60,:]))
@@ -116,13 +116,13 @@ def carroll():
     HCDepressedACTH_rearr_smooth[2:-2,1] = smoothing(HCDepressedACTH_rearr[:,1])
     LCDepressedACTH_rearr_smooth[2:-2,1] = smoothing(LCDepressedACTH_rearr[:,1])
 
-    controlCortisol = np.genfromtxt("controlGroupCortisolCarroll.txt", dtype = float)
-    HCDepressedCortisol = np.genfromtxt("HCDepressedCortisolCarroll.txt", dtype = float)
-    LCDepressedCortisol = np.genfromtxt("LCDepressedCortisolCarroll.txt", dtype = float)
+    controlCortisol = np.genfromtxt("data_files/controlGroupCortisolCarroll.txt", dtype = float)
+    HCDepressedCortisol = np.genfromtxt("data_files/HCDepressedCortisolCarroll.txt", dtype = float)
+    LCDepressedCortisol = np.genfromtxt("data_files/LCDepressedCortisolCarroll.txt", dtype = float)
 
-    controlACTH = np.genfromtxt("controlGroupACTHCarroll.txt", dtype = float)
-    HCDepressedACTH = np.genfromtxt("HCDepressedACTHCarroll.txt", dtype = float)
-    LCDepressedACTH = np.genfromtxt("LCDepressedACTHCarroll.txt", dtype = float)
+    controlACTH = np.genfromtxt("data_files/controlGroupACTHCarroll.txt", dtype = float)
+    HCDepressedACTH = np.genfromtxt("data_files/HCDepressedACTHCarroll.txt", dtype = float)
+    LCDepressedACTH = np.genfromtxt("data_files/LCDepressedACTHCarroll.txt", dtype = float)
 
     controlCortisol_rearr = np.vstack((controlCortisol[60:,:], controlCortisol[0:60,:]))
     HCDepressedCortisol_rearr = np.vstack((HCDepressedCortisol[60:,:], HCDepressedCortisol[0:60,:]))
@@ -152,13 +152,13 @@ def carroll():
     return controlCortisol, controlCortisol_rearr, controlCortisol_smooth, controlCortisol_rearr_smooth, controlACTH, controlACTH_rearr, controlACTH_smooth, controlACTH_rearr_smooth, HCDepressedCortisol, HCDepressedCortisol_rearr, HCDepressedCortisol_smooth, HCDepressedCortisol_rearr_smooth, HCDepressedACTH, HCDepressedACTH_rearr, HCDepressedACTH_smooth, HCDepressedACTH_rearr_smooth, LCDepressedCortisol, LCDepressedCortisol_rearr, LCDepressedCortisol_smooth, LCDepressedCortisol_rearr_smooth, LCDepressedACTH, LCDepressedACTH_rearr, LCDepressedACTH_smooth, LCDepressedACTH_rearr_smooth
 
 def golier():
-    PTSDCortisol = np.genfromtxt("golier-PTSD-cortisol.txt", dtype = float)
-    NonPTSDTraumaExposedCortisol = np.genfromtxt("golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
-    NonPTSDNonExposedCortisol = np.genfromtxt("golier-non-exposed-control-cortisol.txt", dtype = float)
+    PTSDCortisol = np.genfromtxt("data_files/golier-PTSD-cortisol.txt", dtype = float)
+    NonPTSDTraumaExposedCortisol = np.genfromtxt("data_files/golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
+    NonPTSDNonExposedCortisol = np.genfromtxt("data_files/golier-non-exposed-control-cortisol.txt", dtype = float)
 
-    PTSDACTH = np.genfromtxt("golier-PTSD-ACTH.txt", dtype = float)
-    NonPTSDTraumaExposedACTH = np.genfromtxt("golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
-    NonPTSDNonExposedACTH = np.genfromtxt("golier-non-exposed-control-ACTH.txt", dtype = float)
+    PTSDACTH = np.genfromtxt("data_files/golier-PTSD-ACTH.txt", dtype = float)
+    NonPTSDTraumaExposedACTH = np.genfromtxt("data_files/golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
+    NonPTSDNonExposedACTH = np.genfromtxt("data_files/golier-non-exposed-control-ACTH.txt", dtype = float)
 
     # rearrange the arrays so that they start at 10AM like the Yehuda data sets
     PTSDCortisol_rearr = np.vstack((PTSDCortisol[7:,:], PTSDCortisol[0:7,:]))
@@ -202,13 +202,13 @@ def golier():
 
     # re-run the genfromtxt() commands because the smoothing overwrites the non-smoothed
     #  arrays also, for some reason
-    PTSDCortisol = np.genfromtxt("golier-PTSD-cortisol.txt", dtype = float)
-    NonPTSDTraumaExposedCortisol = np.genfromtxt("golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
-    NonPTSDNonExposedCortisol = np.genfromtxt("golier-non-exposed-control-cortisol.txt", dtype = float)
+    PTSDCortisol = np.genfromtxt("data_files/golier-PTSD-cortisol.txt", dtype = float)
+    NonPTSDTraumaExposedCortisol = np.genfromtxt("data_files/golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
+    NonPTSDNonExposedCortisol = np.genfromtxt("data_files/golier-non-exposed-control-cortisol.txt", dtype = float)
 
-    PTSDACTH = np.genfromtxt("golier-PTSD-ACTH.txt", dtype = float)
-    NonPTSDTraumaExposedACTH = np.genfromtxt("golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
-    NonPTSDNonExposedACTH = np.genfromtxt("golier-non-exposed-control-ACTH.txt", dtype = float)
+    PTSDACTH = np.genfromtxt("data_files/golier-PTSD-ACTH.txt", dtype = float)
+    NonPTSDTraumaExposedACTH = np.genfromtxt("data_files/golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
+    NonPTSDNonExposedACTH = np.genfromtxt("data_files/golier-non-exposed-control-ACTH.txt", dtype = float)
 
     # rearrange the arrays so that they start at 10AM like the Yehuda data sets
     PTSDCortisol_rearr = np.vstack((PTSDCortisol[7:,:], PTSDCortisol[0:7,:]))
@@ -240,9 +240,9 @@ def golier():
     return PTSDCortisol, PTSDCortisol_rearr, PTSDCortisol_smooth, PTSDCortisol_rearr_smooth, PTSDACTH, PTSDACTH_rearr, PTSDACTH_smooth, PTSDACTH_rearr_smooth, NonPTSDTraumaExposedCortisol, NonPTSDTraumaExposedCortisol_rearr, NonPTSDTraumaExposedCortisol_smooth, NonPTSDTraumaExposedCortisol_rearr_smooth, NonPTSDTraumaExposedACTH, NonPTSDTraumaExposedACTH_rearr, NonPTSDTraumaExposedACTH_smooth, NonPTSDTraumaExposedACTH_rearr_smooth, NonPTSDNonExposedCortisol, NonPTSDNonExposedCortisol_rearr, NonPTSDNonExposedCortisol_smooth, NonPTSDNonExposedCortisol_rearr_smooth, NonPTSDNonExposedACTH, NonPTSDNonExposedACTH_rearr, NonPTSDNonExposedACTH_smooth, NonPTSDNonExposedACTH_rearr_smooth
 
 def bremner():
-    abusedPTSDCortisol = np.genfromtxt("bremner-abused-PTSD-cortisol.txt", dtype = float)
-    nonAbusedPTSDCortisol = np.genfromtxt("bremner-non-abused-PTSD-cortisol.txt", dtype = float)
-    nonAbusedNonPTSDCortisol = np.genfromtxt("bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
+    abusedPTSDCortisol = np.genfromtxt("data_files/bremner-abused-PTSD-cortisol.txt", dtype = float)
+    nonAbusedPTSDCortisol = np.genfromtxt("data_files/bremner-non-abused-PTSD-cortisol.txt", dtype = float)
+    nonAbusedNonPTSDCortisol = np.genfromtxt("data_files/bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
 
     # rearrange the data so that we start at 10AM like the Yehuda data
     abusedPTSDCortisol_rearr = np.vstack((abusedPTSDCortisol[68:,:], abusedPTSDCortisol[0:68,:]))
@@ -266,9 +266,9 @@ def bremner():
 
     # re-run the genfromtxt() commands because the smoothing overwrites the non-smoothed
     #  arrays for some reason
-    abusedPTSDCortisol = np.genfromtxt("bremner-abused-PTSD-cortisol.txt", dtype = float)
-    nonAbusedPTSDCortisol = np.genfromtxt("bremner-non-abused-PTSD-cortisol.txt", dtype = float)
-    nonAbusedNonPTSDCortisol = np.genfromtxt("bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
+    abusedPTSDCortisol = np.genfromtxt("data_files/bremner-abused-PTSD-cortisol.txt", dtype = float)
+    nonAbusedPTSDCortisol = np.genfromtxt("data_files/bremner-non-abused-PTSD-cortisol.txt", dtype = float)
+    nonAbusedNonPTSDCortisol = np.genfromtxt("data_files/bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
 
     # rearrange the data so that we start at 10AM like the Yehuda data
     abusedPTSDCortisol_rearr = np.vstack((abusedPTSDCortisol[68:,:], abusedPTSDCortisol[0:68,:]))
@@ -287,9 +287,9 @@ def bremner():
     return abusedPTSDCortisol, abusedPTSDCortisol_rearr, abusedPTSDCortisol_smooth, abusedPTSDCortisol_rearr_smooth, nonAbusedPTSDCortisol, nonAbusedPTSDCortisol_rearr, nonAbusedPTSDCortisol_smooth, nonAbusedPTSDCortisol_rearr_smooth, nonAbusedNonPTSDCortisol, nonAbusedNonPTSDCortisol_rearr, nonAbusedNonPTSDCortisol_smooth, nonAbusedNonPTSDCortisol_rearr_smooth
 
 def nelson():
-    ACTH_data = np.genfromtxt("tsst_acth_nelson.txt")
-    cortisol_data = np.genfromtxt("tsst_cort_nelson.txt")
-    subtypes = np.genfromtxt("nelson-MDD-subtypes.txt")
+    ACTH_data = np.genfromtxt("data_files/tsst_acth_nelson.txt")
+    cortisol_data = np.genfromtxt("data_files/tsst_cort_nelson.txt")
+    subtypes = np.genfromtxt("data_files/nelson-MDD-subtypes.txt")
 
     ACTH_mean = np.zeros(11)
     cortisol_mean = np.zeros(11)
@@ -420,8 +420,8 @@ def nelson():
     return cortisol, ACTH, nelsonAtypicalCORT, nelsonAtypicalACTH, nelsonMelancholicCORT, nelsonMelancholicACTH, nelsonNeitherCORT, nelsonNeitherACTH, nelsonHealthyCORT, nelsonHealthyACTH, atypical_ids, melancholic_ids, neither_ids, healthy_ids
 
 def patientF():
-    cortisol = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
-    acth = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-ACTH-data.txt", dtype = float)
+    cortisol = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
+    acth = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-ACTH-data.txt", dtype = float)
 
     cortisol_smooth = cortisol
     acth_smooth = acth
@@ -429,7 +429,7 @@ def patientF():
     cortisol_smooth[2:-2,1] = smoothing(cortisol[:,1])
     acth_smooth[2:-2,1] = smoothing(acth[:,1])
 
-    cortisol = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
-    acth = np.genfromtxt("Bangsgaard-Ottesen-2017-patient-f-ACTH-data.txt", dtype = float)
+    cortisol = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
+    acth = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-ACTH-data.txt", dtype = float)
 
     return cortisol, cortisol_smooth, acth, acth_smooth
