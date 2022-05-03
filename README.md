@@ -17,7 +17,7 @@ However, the Binder environment will require some setup in order to get the mode
 Now that you have a Terminal session open, there should be a prompt with a bunch of random characters that ends with :~$ and a blinking black cursor. Copy and paste the following into the Terminal and press Enter:
 
 ```
-pip install numpy matplotlib scipy mpld3 tabulate pandas
+pip install numpy matplotlib scipy mpld3 tabulate pandas openpyxl
 ```
 This will install all of the necessary Python modules to run all of the models included in this repository, and you can now close the Terminal tab and select any model from the file browser on the left. This setup will need to be performed each time you restart the Binder environment, unfortunately.
 
