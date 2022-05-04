@@ -4,7 +4,7 @@
 #  imports take up the majority of the lines of code in each model right now)
 # Author: Christopher Parker
 # Created: Thu Jan 27, 2022 | 09:38P EST
-# Last Modified: Tue May 03, 2022 | 04:07P EDT
+# Last Modified: Wed May 04, 2022 | 11:51P EDT
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                        Modified BSD License                                 #
@@ -41,6 +41,8 @@
 
 import numpy as np
 
+# This function sets the concentration value at each time step to the average
+#  of the five nearest points to that time step.
 def smoothing(a, n = 5):
     idx = int((n - 1)/2)
     ret = np.cumsum(a, dtype = float)
@@ -48,6 +50,9 @@ def smoothing(a, n = 5):
     ret[idx] = ret[idx + 2]
     return ret[idx:-idx]/n
 
+# Import the data from Yehuda et al. (1996) and return arrays for control, PTSD
+#  and depressed groups, as well as smoothed versions of the same. This data
+#  set only includes cortisol concentration data.
 def yehuda():
     controlCortisol = np.genfromtxt("data_files/yehuda-control-cortisol.txt")
     PTSDCortisol = np.genfromtxt("data_files/yehuda-PTSD-cortisol.txt")
@@ -67,6 +72,13 @@ def yehuda():
 
     return [controlCortisol, controlCortisol_smooth, PTSDCortisol, PTSDCortisol_smooth, depressedCortisol, depressedCortisol_smooth]
 
+# Import the data from Carroll et al. (2007) and save it to arrays for control,
+#  low-cortisol depressed (LCDepressed) and high-cortisol depressed 
+#  (HCDepressed), with separate arrays for ACTH and cortisol concentration.
+# Also rearrange the data to have the same starting point as the Yehuda data,
+#  which is 10AM, and save it to arrays with _rearr at the end. Then create
+#  smoothed versions of both normal and rearranged arrays, and save them to
+#  arrays with _smooth at the end.
 def carroll():
     controlCortisol = np.genfromtxt("data_files/controlGroupCortisolCarroll.txt", dtype = float)
     HCDepressedCortisol = np.genfromtxt("data_files/HCDepressedCortisolCarroll.txt", dtype = float)
@@ -151,6 +163,11 @@ def carroll():
 
     return controlCortisol, controlCortisol_rearr, controlCortisol_smooth, controlCortisol_rearr_smooth, controlACTH, controlACTH_rearr, controlACTH_smooth, controlACTH_rearr_smooth, HCDepressedCortisol, HCDepressedCortisol_rearr, HCDepressedCortisol_smooth, HCDepressedCortisol_rearr_smooth, HCDepressedACTH, HCDepressedACTH_rearr, HCDepressedACTH_smooth, HCDepressedACTH_rearr_smooth, LCDepressedCortisol, LCDepressedCortisol_rearr, LCDepressedCortisol_smooth, LCDepressedCortisol_rearr_smooth, LCDepressedACTH, LCDepressedACTH_rearr, LCDepressedACTH_smooth, LCDepressedACTH_rearr_smooth
 
+# Import the data from Golier et al. (2007) and save it to arrays for PTSD,
+#  Non-PTSD, Trauma-exposed controls, and Non-PTSD, non-exposed controls with
+#  separate arrays for cortisol and ACTH concentration data.
+# As with the Carroll data, create _rearr, _smooth and _rearr_smooth versions
+#  of each array.
 def golier():
     PTSDCortisol = np.genfromtxt("data_files/golier-PTSD-cortisol.txt", dtype = float)
     NonPTSDTraumaExposedCortisol = np.genfromtxt("data_files/golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
@@ -239,6 +256,11 @@ def golier():
 
     return PTSDCortisol, PTSDCortisol_rearr, PTSDCortisol_smooth, PTSDCortisol_rearr_smooth, PTSDACTH, PTSDACTH_rearr, PTSDACTH_smooth, PTSDACTH_rearr_smooth, NonPTSDTraumaExposedCortisol, NonPTSDTraumaExposedCortisol_rearr, NonPTSDTraumaExposedCortisol_smooth, NonPTSDTraumaExposedCortisol_rearr_smooth, NonPTSDTraumaExposedACTH, NonPTSDTraumaExposedACTH_rearr, NonPTSDTraumaExposedACTH_smooth, NonPTSDTraumaExposedACTH_rearr_smooth, NonPTSDNonExposedCortisol, NonPTSDNonExposedCortisol_rearr, NonPTSDNonExposedCortisol_smooth, NonPTSDNonExposedCortisol_rearr_smooth, NonPTSDNonExposedACTH, NonPTSDNonExposedACTH_rearr, NonPTSDNonExposedACTH_smooth, NonPTSDNonExposedACTH_rearr_smooth
 
+# Import the data from Bremner et al. (2007) and save it to arrays for
+#  abused PTSD, non-abused PTSD and non-abused non-PTSD control. This data set
+#  only includes cortisol data, so no ACTH arrays here.
+# As with the other data sets, create _rearr, _smooth and _rearr_smooth versions
+#  of each array.
 def bremner():
     abusedPTSDCortisol = np.genfromtxt("data_files/bremner-abused-PTSD-cortisol.txt", dtype = float)
     nonAbusedPTSDCortisol = np.genfromtxt("data_files/bremner-non-abused-PTSD-cortisol.txt", dtype = float)
@@ -286,6 +308,7 @@ def bremner():
 
     return abusedPTSDCortisol, abusedPTSDCortisol_rearr, abusedPTSDCortisol_smooth, abusedPTSDCortisol_rearr_smooth, nonAbusedPTSDCortisol, nonAbusedPTSDCortisol_rearr, nonAbusedPTSDCortisol_smooth, nonAbusedPTSDCortisol_rearr_smooth, nonAbusedNonPTSDCortisol, nonAbusedNonPTSDCortisol_rearr, nonAbusedNonPTSDCortisol_smooth, nonAbusedNonPTSDCortisol_rearr_smooth
 
+# Import the data from Dr Nelson for TSST tests on depressed and control subjects.
 def nelson():
     ACTH_data = np.genfromtxt("data_files/tsst_acth_nelson.txt")
     cortisol_data = np.genfromtxt("data_files/tsst_cort_nelson.txt")
@@ -419,6 +442,10 @@ def nelson():
 
     return cortisol, ACTH, nelsonAtypicalCORT, nelsonAtypicalACTH, nelsonMelancholicCORT, nelsonMelancholicACTH, nelsonNeitherCORT, nelsonNeitherACTH, nelsonHealthyCORT, nelsonHealthyACTH, atypical_ids, melancholic_ids, neither_ids, healthy_ids
 
+# Import the data for "Patient F" from the paper by Bangsgaard & Ottesen (2017)
+#  and save the data to separate arrays for cortisol and ACTH concentration data.
+#  Also create smoothed versions of these arrays with _smooth at the end of the
+#  variable name.
 def patientF():
     cortisol = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-cortisol-data.txt", dtype = float)
     acth = np.genfromtxt("data_files/Bangsgaard-Ottesen-2017-patient-f-ACTH-data.txt", dtype = float)
