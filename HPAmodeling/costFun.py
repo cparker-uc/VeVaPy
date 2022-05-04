@@ -4,7 +4,7 @@
 #  as it currently has quite few hardcoded variables
 # Author: Christopher Parker
 # Created: Tue Jan 25, 2022 | 09:26P EST
-# Last Modified: Mon May 02, 2022 | 05:26P EDT
+# Last Modified: Wed May 04, 2022 | 11:15P EDT
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                        Modified BSD License                                 #
@@ -42,7 +42,11 @@
 import numpy as np
 from scipy.interpolate import interp1d
 
-def cost(params, time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
+# This is the main function you'll want to call from this module. It takes
+#  the time steps and data points for the real-world ACTH and cortisol
+#  concentration values you're optimizing against as well as the data from 
+#  a simulation with the model and returns the cost for the parameter set used
+def cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
     # Compute the means of ACTH and CORT data arrays
     mean_ACTH = np.mean(data_ACTH)
     mean_CORT = np.mean(data_CORT)
@@ -71,13 +75,8 @@ def cost(params, time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
         acthSSE = np.sum((spline_ACTH(time_ACTH) - dataNorm_ACTH)**2)
         cortSSE = np.sum((spline_CORT(time_CORT) - dataNorm_CORT)**2)
 
-        # When we are matching data that includes ACTH values, we define cost
-        #  as the average of the ACTH and CORT SSEs.
+        # We define cost as the average of the ACTH and CORT SSEs.
         cost = (acthSSE + cortSSE)/2
-
-        # If the data we are matching does not include ACTH values, we simply
-        #  define cost as the SSE of the CORT array
-        # cost = cortSSE
 
         return cost
 
@@ -90,7 +89,11 @@ def cost(params, time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
         #  early.
         print("ODE solver did not make it through all data points.")
 
-def cost_noACTH(params, time_CORT, data_CORT, simData):
+
+# This is similar to the function above, but does not take ACTH concentration
+#  data as an input. So you'd use this one if your real-world data only has
+#  cortisol concentrations
+def cost_noACTH(time_CORT, data_CORT, simData):
     # Compute the mean of the CORT data array
     mean_CORT = np.mean(data_CORT)
 

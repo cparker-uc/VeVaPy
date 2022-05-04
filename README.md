@@ -34,6 +34,8 @@ This repository contains quite a few different models, each in their own Jupyter
 | Stanojevic-2018-nanomolar.ipynb       | A. Stanojevic, V.M. Markovic, Z. Cupic, L. Kolar-Anic & V. Vukojevic                                             | 2018 | Same as Stanojevic-2018.ipynb but with units converted to nanomolar for increased accuracy when computing cost function (because molar units lead to very small concentration values which introduced extra rounding errors).  |
 | Vinther-2011.ipynb                    | F. Vinther, M. Andersen & J.T. Ottesen                                                                           | 2011 | Described by the authors as the "Minimal Model of the HPA Axis," this is a very bare-bones model and thus does not perform well on validation against real-world basal data (haven't tested with TSST data).                   |
 
+**Note:** Unfortunately, aside from the models discussed in the paper, most of the models are not fully polished and may require some tweaks. If you're not familiar with Python, you may want to stick with one of the models from the paper.
+
 ## Dependencies Required to Run Models Locally <a name="localDependencies" />
 If you would prefer to run the models on your local machine, rather than in a Binder environment, the requirements listed in the following table will need to be met.
 
