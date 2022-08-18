@@ -3,7 +3,7 @@
 #   steps to improve readability in the model notebooks
 # Author: Christopher Parker
 # Created: Mon Jan 24, 2022 | 03:39P EST
-# Last Modified: Wed May 04, 2022 | 11:41P EDT
+# Last Modified: Fri Aug 05, 2022 | 02:13P EDT
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                        Modified BSD License                                 #
@@ -68,7 +68,7 @@ def solve(ode_system, ics, t_start, t_step, t_end, ode_steps = 100000, ode_atol 
     # These lines define the ODE solver object using the arguments passed to 
     #  solve(), or the defaults if options haven't been passed
     solver = sci.ode(ode_system)
-    solver.set_integrator('vode', method='bdf', atol = ode_atol, rtol = ode_rtol, nsteps=ode_steps)
+    solver.set_integrator('lsoda', method='bdf', atol = ode_atol, rtol = ode_rtol, nsteps=ode_steps)
     solver.set_initial_value(ics, t_start)
 
     # Here is where we loop through the time interval of integration, but only
