@@ -3,11 +3,10 @@
 #   steps to improve readability in the model notebooks
 # Author: Christopher Parker
 # Created: Mon Jan 24, 2022 | 03:39P EST
-# Last Modified: Mon Sep 12, 2022 | 02:08P EDT
+# Last Modified: Mon Sep 12, 2022 | 04:59P EDT
 
-# Importing through __init__.py now
-#import scipy.integrate as sci
-#import numpy as np
+import scipy.integrate as sci
+import numpy as np
 
 # This function takes an ODE system (defined as a function), initial conditions,
 #  the time interval for integration. It can also (optionally) accept values for

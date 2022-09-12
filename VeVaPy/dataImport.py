@@ -4,10 +4,9 @@
 # for each data set they wish to use in their code
 # Author: Christopher Parker
 # Created: Wed Aug 17, 2022 | 02:17P EDT
-# Last Modified: Mon Sep 12, 2022 | 02:10P EDT
+# Last Modified: Mon Sep 12, 2022 | 04:58P EDT
 
-# Importing via __init__.py now
-#import numpy as np
+import numpy as np
 
 class data:
     """

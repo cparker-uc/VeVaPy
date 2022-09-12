@@ -3,14 +3,14 @@
 #  with or without real-world data displayed, also
 # Author: Christopher Parker
 # Created: Sat Aug 27, 2022 | 04:25P EDT
-# Last Modified: Mon Sep 12, 2022 | 02:13P EDT
+# Last Modified: Mon Sep 12, 2022 | 04:59P EDT
 
-# Importing via __init__.py now
-#from IPython.display import clear_output
-#from functools import wraps
-#import numpy as np
-#import matplotlib.pyplot as plt
-#import re
+from IPython.display import clear_output
+from functools import wraps
+import numpy as np
+import matplotlib.pyplot as plt
+import re
+import inspect
 
 
 class Visualizer:
@@ -301,10 +301,18 @@ class Visualizer:
     # Look up documentation on decorator functions in Python for more information on how this works.
     def __explicit_checker(f):
         varnames = inspect.getfullargspec(f)[0]
-        @wraps(f)
+        # It seems like the new version of Python has broken functools, so I'll 
+        #  replace this with a slightly more ugly version. We need to just tell 
+        #  the decorator function that it's supposed to report the name and 
+        #  docstring of the function being wrapped instead of its own.
+        #@wraps(f)
         def wrapper(self, *a, **kw):
             kw['explicit_params'] = set(list(varnames[:len(a)]) + list(kw.keys()))
             return f(self, *a, **kw)
+
+        # Here's the replacement of @wraps(f)
+        wrapper.__name__ = f.__name__
+        wrapper.__doc__ = f.__doc__
         return wrapper
 
     # Decorate the function with the __explicit_checker function, so that whenever this function is called, we are actually

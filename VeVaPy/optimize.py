@@ -4,13 +4,12 @@
 #  function definitions that can be used.
 # Author: Christopher Parker
 # Created: Thu Aug 25, 2022 | 03:19P EDT
-# Last Modified: Mon Sep 12, 2022 | 02:11P EDT
+# Last Modified: Mon Sep 12, 2022 | 04:58P EDT
 
-# Importing via __init__.py now
-#import scipy.optimize as sco
-#from scipy.interpolate import interp1d
-#import time
-#import numpy as np
+import scipy.optimize as sco
+from scipy.interpolate import interp1d
+import time
+import numpy as np
 
 # This function contains the main loop used for running iterations of 
 #  parameter optimization algorithms.
