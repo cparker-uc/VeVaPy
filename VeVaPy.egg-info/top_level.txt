@@ -1,9 +1,0 @@
-Nelson Data Visualization Figures
-VeVaPy
-bairagiModel_output
-bangsgaardModel_output
-dist
-malekModel_output
-out
-somvanshiModel_output
-sriramModel_output
