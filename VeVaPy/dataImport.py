@@ -4,42 +4,11 @@
 # for each data set they wish to use in their code
 # Author: Christopher Parker
 # Created: Wed Aug 17, 2022 | 02:17P EDT
-# Last Modified: Wed Aug 31, 2022 | 01:22P EDT
+# Last Modified: Mon Sep 12, 2022 | 02:10P EDT
 
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#                        Modified BSD License                                 #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#     Copyright 2022 Christopher John Parker <parkecp@mail.uc.edu>            #
-#                                                                             #
-# Redistribution and use in source and binary forms, with or without          #
-# modification, are permitted provided that the following conditions are met: #
-#                                                                             #
-# 1. Redistributions of source code must retain the above copyright notice,   #
-#    this list of conditions and the following disclaimer.                    #
-#                                                                             #
-# 2. Redistributions in binary form must reproduce the above copyright        #
-#    notice, this list of conditions and the following disclaimer in the      #
-#    documentation and/or other materials provided with the distribution.     #
-#                                                                             #
-# 3. Neither the name of the copyright holder nor the names of its            #
-#    contributors may be used to endorse or promote products derived from     #
-#    this software without specific prior written permission.                 #
-#                                                                             #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" #
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   #
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  #
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE   #
-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR         #
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF        #
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS    #
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     #
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)     #
-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE  #
-# POSSIBILITY OF SUCH DAMAGE.                                                 #
-#                                                                             #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# Importing via __init__.py now
+#import numpy as np
 
-import numpy as np
 class data:
     """
     Imports HPA axis data sets into an object based on which set name is passed.
@@ -104,9 +73,9 @@ class data:
         For example:
             controlCortisol_smooth.
         """
-        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-control-cortisol.txt")
-        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-PTSD-cortisol.txt")
-        self.depressedCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-depressed-cortisol.txt")
+        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-control-cortisol.txt")
+        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-PTSD-cortisol.txt")
+        self.depressedCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-depressed-cortisol.txt")
 
         self.controlCortisol_smooth = self.controlCortisol
         self.PTSDCortisol_smooth = self.PTSDCortisol
@@ -116,9 +85,9 @@ class data:
         self.PTSDCortisol_smooth[2:-2,1] = self.__smoothing(self.PTSDCortisol[:,1])
         self.depressedCortisol_smooth[2:-2,1] = self.__smoothing(self.depressedCortisol[:,1])
 
-        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-control-cortisol.txt")
-        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-PTSD-cortisol.txt")
-        self.depressedCortisol = np.genfromtxt("VeVaPy/data_files/yehuda-depressed-cortisol.txt")
+        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-control-cortisol.txt")
+        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-PTSD-cortisol.txt")
+        self.depressedCortisol = np.genfromtxt("VeVaPy/data_files/Yehuda-1996-depressed-cortisol.txt")
 
         # the data time scale is minutes, so convert it to hours when requested
         if scale.lower() == "hours":
@@ -156,13 +125,13 @@ class data:
             controlCortisol_rearr or controlCortisol_rearr_smooth
         """
 
-        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/controlGroupCortisolCarroll.txt", dtype = float)
-        self.HCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/HCDepressedCortisolCarroll.txt", dtype = float)
-        self.LCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/LCDepressedCortisolCarroll.txt", dtype = float)
+        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-controlGroupCortisol.txt", dtype = float)
+        self.HCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-HCDepressedCortisol.txt", dtype = float)
+        self.LCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-LCDepressedCortisol.txt", dtype = float)
 
-        self.controlACTH = np.genfromtxt("VeVaPy/data_files/controlGroupACTHCarroll.txt", dtype = float)
-        self.HCDepressedACTH = np.genfromtxt("VeVaPy/data_files/HCDepressedACTHCarroll.txt", dtype = float)
-        self.LCDepressedACTH = np.genfromtxt("VeVaPy/data_files/LCDepressedACTHCarroll.txt", dtype = float)
+        self.controlACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-controlGroupACTH.txt", dtype = float)
+        self.HCDepressedACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-HCDepressedACTH.txt", dtype = float)
+        self.LCDepressedACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-LCDepressedACTH.txt", dtype = float)
 
         self.controlCortisol_rearr = np.vstack((self.controlCortisol[60:,:], self.controlCortisol[0:60,:]))
         self.HCDepressedCortisol_rearr = np.vstack((self.HCDepressedCortisol[60:,:], self.HCDepressedCortisol[0:60,:]))
@@ -204,13 +173,13 @@ class data:
         self.HCDepressedACTH_rearr_smooth[2:-2,1] = self.__smoothing(self.HCDepressedACTH_rearr[:,1])
         self.LCDepressedACTH_rearr_smooth[2:-2,1] = self.__smoothing(self.LCDepressedACTH_rearr[:,1])
 
-        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/controlGroupCortisolCarroll.txt", dtype = float)
-        self.HCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/HCDepressedCortisolCarroll.txt", dtype = float)
-        self.LCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/LCDepressedCortisolCarroll.txt", dtype = float)
+        self.controlCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-controlGroupCortisol.txt", dtype = float)
+        self.HCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-HCDepressedCortisol.txt", dtype = float)
+        self.LCDepressedCortisol = np.genfromtxt("VeVaPy/data_files/Carroll-2007-LCDepressedCortisol.txt", dtype = float)
 
-        self.controlACTH = np.genfromtxt("VeVaPy/data_files/controlGroupACTHCarroll.txt", dtype = float)
-        self.HCDepressedACTH = np.genfromtxt("VeVaPy/data_files/HCDepressedACTHCarroll.txt", dtype = float)
-        self.LCDepressedACTH = np.genfromtxt("VeVaPy/data_files/LCDepressedACTHCarroll.txt", dtype = float)
+        self.controlACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-controlGroupACTH.txt", dtype = float)
+        self.HCDepressedACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-HCDepressedACTH.txt", dtype = float)
+        self.LCDepressedACTH = np.genfromtxt("VeVaPy/data_files/Carroll-2007-LCDepressedACTH.txt", dtype = float)
 
         self.controlCortisol_rearr = np.vstack((self.controlCortisol[60:,:], self.controlCortisol[0:60,:]))
         self.HCDepressedCortisol_rearr = np.vstack((self.HCDepressedCortisol[60:,:], self.HCDepressedCortisol[0:60,:]))
@@ -293,13 +262,13 @@ class data:
             PTSDCortisol_rearr or PTSDCortisol_rearr_smooth
         """
 
-        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/golier-PTSD-cortisol.txt", dtype = float)
-        self.nonPTSDTraumaExposedCortisol = np.genfromtxt("VeVaPy/data_files/golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
-        self.nonPTSDNonExposedCortisol = np.genfromtxt("VeVaPy/data_files/golier-non-exposed-control-cortisol.txt", dtype = float)
+        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-PTSD-cortisol.txt", dtype = float)
+        self.nonPTSDTraumaExposedCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
+        self.nonPTSDNonExposedCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-exposed-control-cortisol.txt", dtype = float)
 
-        self.PTSDACTH = np.genfromtxt("VeVaPy/data_files/golier-PTSD-ACTH.txt", dtype = float)
-        self.nonPTSDTraumaExposedACTH = np.genfromtxt("VeVaPy/data_files/golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
-        self.nonPTSDNonExposedACTH = np.genfromtxt("VeVaPy/data_files/golier-non-exposed-control-ACTH.txt", dtype = float)
+        self.PTSDACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-PTSD-ACTH.txt", dtype = float)
+        self.nonPTSDTraumaExposedACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
+        self.nonPTSDNonExposedACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-exposed-control-ACTH.txt", dtype = float)
 
         # rearrange the arrays so that they start at 10AM like the Yehuda data sets
         self.PTSDCortisol_rearr = np.vstack((self.PTSDCortisol[7:,:], self.PTSDCortisol[0:7,:]))
@@ -343,13 +312,13 @@ class data:
 
         # re-run the genfromtxt() commands because the smoothing overwrites the non-smoothed
         #  arrays also, for some reason
-        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/golier-PTSD-cortisol.txt", dtype = float)
-        self.nonPTSDTraumaExposedCortisol = np.genfromtxt("VeVaPy/data_files/golier-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
-        self.nonPTSDNonExposedCortisol = np.genfromtxt("VeVaPy/data_files/golier-non-exposed-control-cortisol.txt", dtype = float)
+        self.PTSDCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-PTSD-cortisol.txt", dtype = float)
+        self.nonPTSDTraumaExposedCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-PTSD-trauma-exposed-cortisol.txt", dtype = float)
+        self.nonPTSDNonExposedCortisol = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-exposed-control-cortisol.txt", dtype = float)
 
-        self.PTSDACTH = np.genfromtxt("VeVaPy/data_files/golier-PTSD-ACTH.txt", dtype = float)
-        self.nonPTSDTraumaExposedACTH = np.genfromtxt("VeVaPy/data_files/golier-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
-        self.nonPTSDNonExposedACTH = np.genfromtxt("VeVaPy/data_files/golier-non-exposed-control-ACTH.txt", dtype = float)
+        self.PTSDACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-PTSD-ACTH.txt", dtype = float)
+        self.nonPTSDTraumaExposedACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-PTSD-trauma-exposed-ACTH.txt", dtype = float)
+        self.nonPTSDNonExposedACTH = np.genfromtxt("VeVaPy/data_files/Golier-2007-non-exposed-control-ACTH.txt", dtype = float)
 
         # rearrange the arrays so that they start at 10AM like the Yehuda data sets
         self.PTSDCortisol_rearr = np.vstack((self.PTSDCortisol[7:,:], self.PTSDCortisol[0:7,:]))
@@ -434,9 +403,9 @@ class data:
             abusedPTSDCortisol_rearr or abusedPTSDCortisol_rearr_smooth
         """
 
-        self.abusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-abused-PTSD-cortisol.txt", dtype = float)
-        self.nonAbusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-non-abused-PTSD-cortisol.txt", dtype = float)
-        self.nonAbusedNonPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
+        self.abusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-abused-PTSD-cortisol.txt", dtype = float)
+        self.nonAbusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-non-abused-PTSD-cortisol.txt", dtype = float)
+        self.nonAbusedNonPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-non-abused-non-PTSD-cortisol.txt", dtype = float)
 
         # rearrange the data so that we start at 10AM like the Yehuda data
         self.abusedPTSDCortisol_rearr = np.vstack((self.abusedPTSDCortisol[68:,:], self.abusedPTSDCortisol[0:68,:]))
@@ -460,9 +429,9 @@ class data:
 
         # re-run the genfromtxt() commands because the smoothing overwrites the non-smoothed
         #  arrays for some reason
-        self.abusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-abused-PTSD-cortisol.txt", dtype = float)
-        self.nonAbusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-non-abused-PTSD-cortisol.txt", dtype = float)
-        self.nonAbusedNonPTSDCortisol = np.genfromtxt("VeVaPy/data_files/bremner-non-abused-non-PTSD-cortisol.txt", dtype = float)
+        self.abusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-abused-PTSD-cortisol.txt", dtype = float)
+        self.nonAbusedPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-non-abused-PTSD-cortisol.txt", dtype = float)
+        self.nonAbusedNonPTSDCortisol = np.genfromtxt("VeVaPy/data_files/Bremner-2007-non-abused-non-PTSD-cortisol.txt", dtype = float)
 
         # rearrange the data so that we start at 10AM like the Yehuda data
         self.abusedPTSDCortisol_rearr = np.vstack((self.abusedPTSDCortisol[68:,:], self.abusedPTSDCortisol[0:68,:]))

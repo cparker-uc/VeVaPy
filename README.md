@@ -1,14 +1,24 @@
-#  Instructions for Use of Models
+# VeVaPy Instructions
 
 ## Table of Contents
-1. [Binder Setup](#binderSetup)
-2. [Model Selection](#modelSelection)
-3. [Dependencies Required to Run Models Locally](#localDependencies)
-4. [General Instructions](#generalInstructions)
+1. [Installation](#install)
+2. [Binder Setup](#binderSetup)
+3. [Model Selection](#modelSelection)
+4. [Dependencies Required to Run Models Locally](#localDependencies)
+5. [General Instructions](#generalInstructions)
 
+## Installation <a name="install"/>
+
+VeVaPy is most easily installed with the command
+
+    pip install VeVaPy
+
+However, it can also be downloaded directly from Github and placed in the directory of the model files you wish to test. In this case, see [Dependencies Required to Run Models Locally](#localDependencies) for the packages you'll need.
+
+In order to avoid downloading anything to your local machine, you can also use a virtual Jupyter environment through Binder. See [Binder Setup](#binderSetup) for instructions.
 
 ## Binder Setup <a name="binderSetup"/>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cparker-uc/PTSD/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cparker-uc/VeVaPy/HEAD)
 
 Clicking the "Launch Binder" link above will open this repository in Binder, which allows you to run all of the Jupyter notebook files in your web browser without needing to have any software installed.
 

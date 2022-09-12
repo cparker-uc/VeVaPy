@@ -1,40 +1,26 @@
 # File Name: __init__.py
-# Description: empty init file for package at the moment, maybe I will configure
-#  this at some point
+# Description: Initialization for VeVaPy, allows importing of packages with
+#  a single command. Also contains basic version and help information
 # Author: Christopher Parker
 # Created: Mon Jan 24, 2022 | 03:38P EST
-# Last Modified: Fri Apr 29, 2022 | 04:22P EDT
+# Last Modified: Mon Sep 12, 2022 | 02:12P EDT
 
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#                        Modified BSD License                                 #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#     Copyright 2022 Christopher John Parker <parkecp@mail.uc.edu>            #
-#                                                                             #
-# Redistribution and use in source and binary forms, with or without          #
-# modification, are permitted provided that the following conditions are met: #
-#                                                                             #
-# 1. Redistributions of source code must retain the above copyright notice,   #
-#    this list of conditions and the following disclaimer.                    #
-#                                                                             #
-# 2. Redistributions in binary form must reproduce the above copyright        #
-#    notice, this list of conditions and the following disclaimer in the      #
-#    documentation and/or other materials provided with the distribution.     #
-#                                                                             #
-# 3. Neither the name of the copyright holder nor the names of its            #
-#    contributors may be used to endorse or promote products derived from     #
-#    this software without specific prior written permission.                 #
-#                                                                             #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" #
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   #
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  #
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE   #
-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR         #
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF        #
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS    #
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     #
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)     #
-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE  #
-# POSSIBILITY OF SUCH DAMAGE.                                                 #
-#                                                                             #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+__version__ = '0.1'
 
+import matplotlib
+matplotlib.use('inline')
+
+import numpy as np
+import scipy.integrate as sci
+import scipy.optimize as sco
+from scipy.interpolate import interp1d
+import time
+from IPython.display import clear_output
+from functools import wraps
+import matplotlib.pyplot as plt
+import re
+
+from VeVaPy import DEsolver
+from VeVaPy import optimize
+from VeVaPy.dataImport import data
+from VeVaPy.visualize import Visualizer

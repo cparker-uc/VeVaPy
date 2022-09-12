@@ -4,45 +4,13 @@
 #  function definitions that can be used.
 # Author: Christopher Parker
 # Created: Thu Aug 25, 2022 | 03:19P EDT
-# Last Modified: Tue Aug 30, 2022 | 04:06P EDT
+# Last Modified: Mon Sep 12, 2022 | 02:11P EDT
 
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#                        Modified BSD License                                 #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-#     Copyright 2022 Christopher John Parker <parkecp@mail.uc.edu>            #
-#                                                                             #
-# Redistribution and use in source and binary forms, with or without          #
-# modification, are permitted provided that the following conditions are met: #
-#                                                                             #
-# 1. Redistributions of source code must retain the above copyright notice,   #
-#    this list of conditions and the following disclaimer.                    #
-#                                                                             #
-# 2. Redistributions in binary form must reproduce the above copyright        #
-#    notice, this list of conditions and the following disclaimer in the      #
-#    documentation and/or other materials provided with the distribution.     #
-#                                                                             #
-# 3. Neither the name of the copyright holder nor the names of its            #
-#    contributors may be used to endorse or promote products derived from     #
-#    this software without specific prior written permission.                 #
-#                                                                             #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" #
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   #
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  #
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE   #
-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR         #
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF        #
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS    #
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     #
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)     #
-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE  #
-# POSSIBILITY OF SUCH DAMAGE.                                                 #
-#                                                                             #
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-
-import scipy.optimize as sco
-from scipy.interpolate import interp1d
-import time
-import numpy as np
+# Importing via __init__.py now
+#import scipy.optimize as sco
+#from scipy.interpolate import interp1d
+#import time
+#import numpy as np
 
 # This function contains the main loop used for running iterations of 
 #  parameter optimization algorithms.
@@ -119,14 +87,20 @@ def run(cost_fun, model, data_to_match, y0, bounds, num_iter=5, \
 #  and cortisol concentration values you're optimizing against as well as the 
 #  data from a simulation with the model and returns the cost for the parameter 
 #  set used.
-def SSE_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
+# There are optional arguments for ACTH_index and CORT_index in case the model
+#  equations are ordered differently from the standard. That way the user can
+#  pass the indices of ACTH and CORT as they are defined in y (or y0)
+def SSE_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData, 
+             ACTH_index = 1, CORT_index = 2):
     # Compute the means of ACTH and CORT data arrays
     mean_ACTH = np.mean(data_ACTH)
     mean_CORT = np.mean(data_CORT)
 
-    # Normalize the simData arrays by the mean values of data set to be matched
-    simNorm_ACTH = simData[:,2]/mean_ACTH
-    simNorm_CORT = simData[:,3]/mean_CORT
+    # Normalize the simData arrays by the mean values of data set to be matched.
+    # We use ACTH_index and CORT_index plus 1 because the first column is the time
+    # steps
+    simNorm_ACTH = simData[:,ACTH_index+1]/mean_ACTH
+    simNorm_CORT = simData[:,CORT_index+1]/mean_CORT
 
     # Normalize the data set to be matched, as well
     dataNorm_ACTH = data_ACTH/mean_ACTH
@@ -166,12 +140,12 @@ def SSE_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
 # This is similar to the function above, but does not take ACTH concentration
 #  data as an input. So you'd use this one if your real-world data only has
 #  cortisol concentrations
-def SSE_cost_noACTH(time_CORT, data_CORT, simData):
+def SSE_cost_noACTH(time_CORT, data_CORT, simData, CORT_index = 2):
     # Compute the mean of the CORT data array
     mean_CORT = np.mean(data_CORT)
 
     # Normalize the simData array by the mean value of data set to be matched
-    simNorm_CORT = simData[:,3]/mean_CORT
+    simNorm_CORT = simData[:,CORT_index+1]/mean_CORT
 
     # Normalize the data set to be matched, as well
     dataNorm_CORT = data_CORT/mean_CORT
@@ -204,14 +178,15 @@ def SSE_cost_noACTH(time_CORT, data_CORT, simData):
 #  distance between the simulation and real-world data.
 #  
 # Here, we use the maximum distance
-def max_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
+def max_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData,
+             ACTH_index = 1, CORT_index = 2):
     # Compute the means of ACTH and CORT data arrays
     mean_ACTH = np.mean(data_ACTH)
     mean_CORT = np.mean(data_CORT)
 
     # Normalize the simData arrays by the mean values of data set to be matched
-    simNorm_ACTH = simData[:,2]/mean_ACTH
-    simNorm_CORT = simData[:,3]/mean_CORT
+    simNorm_ACTH = simData[:,ACTH_index+1]/mean_ACTH
+    simNorm_CORT = simData[:,CORT_index+1]/mean_CORT
 
     # Normalize the data set to be matched, as well
     dataNorm_ACTH = data_ACTH/mean_ACTH
@@ -250,12 +225,12 @@ def max_cost(time_ACTH, data_ACTH, time_CORT, data_CORT, simData):
 
 # And here we compute the cost based on the maximum distance for data sets that
 #  only contain cortisol data
-def max_cost_noACTH(time_CORT, data_CORT, simData):
+def max_cost_noACTH(time_CORT, data_CORT, simData, CORT_index = 2):
     # Compute the mean of the CORT data array
     mean_CORT = np.mean(data_CORT)
 
     # Normalize the simData array by the mean value of data set to be matched
-    simNorm_CORT = simData[:,3]/mean_CORT
+    simNorm_CORT = simData[:,CORT_index+1]/mean_CORT
 
     # Normalize the data set to be matched, as well
     dataNorm_CORT = data_CORT/mean_CORT

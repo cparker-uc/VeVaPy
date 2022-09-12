@@ -1,0 +1,8 @@
+numpy
+scipy
+matplotlib
+IPython
+Jupyterlab
+functools
+tabulate
+pandas
