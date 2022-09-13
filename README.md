@@ -9,11 +9,11 @@
 
 ## Installation <a name="install"/>
 
-VeVaPy is most easily installed with the command
+The VeVaPy modules (without the demonstration model notebooks) are most easily installed with the command
 
     pip install VeVaPy
 
-However, it can also be downloaded directly from Github and placed in the directory of the model files you wish to test. In this case, see [Dependencies Required to Run Models Locally](#localDependencies) for the packages you'll need.
+However, they can also be downloaded directly from Github and placed in the directory of the model files you wish to test. In this case, see [Dependencies Required to Run Models Locally](#localDependencies) for the packages you'll need. You can also download only the Jupyter notebooks for the demonstration models you are interested in and use pip to install the VeVaPy modules and dependencies.
 
 In order to avoid downloading anything to your local machine, you can also use a virtual Jupyter environment through Binder. See [Binder Setup](#binderSetup) for instructions.
 
