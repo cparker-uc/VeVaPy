@@ -3,10 +3,9 @@
 #  with or without real-world data displayed, also
 # Author: Christopher Parker
 # Created: Sat Aug 27, 2022 | 04:25P EDT
-# Last Modified: Mon Sep 12, 2022 | 04:59P EDT
+# Last Modified: Mon Nov 14, 2022 | 11:29P EST
 
 from IPython.display import clear_output
-from functools import wraps
 import numpy as np
 import matplotlib.pyplot as plt
 import re
@@ -298,9 +297,9 @@ class Visualizer:
     # This is a local decorator to check whether any of the optional arguments to make_graphs have been passed
     #  explicitly by the user. Basically, it checks the arguments passed to the function it's wrapped around and then
     #  passes on the ones explicitly defined by the user as an argument to the wrapped function.
-    # Look up documentation on decorator functions in Python for more information on how this works.
     def __explicit_checker(f):
         varnames = inspect.getfullargspec(f)[0]
+
         # It seems like the new version of Python has broken functools, so I'll 
         #  replace this with a slightly more ugly version. We need to just tell 
         #  the decorator function that it's supposed to report the name and 
