@@ -1,4 +1,4 @@
-numpy>=1.21.5
+numpy>=1.22.2
 matplotlib>=3.0.1
 pandas>=0.23.4
 scipy>=1.1.0
@@ -6,3 +6,5 @@ tabulate>=0.8.9
 openpyxl>=3.0.9
 ipython
 xlsxwriter
+fonttools>=4.43.0 # not directly required, pinned by Snyk to avoid a vulnerability
+pillow>=10.3.0 # not directly required, pinned by Snyk to avoid a vulnerability
