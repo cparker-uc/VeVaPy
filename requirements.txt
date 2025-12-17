@@ -6,3 +6,4 @@ tabulate>=0.8.9
 openpyxl>=3.0.9
 ipython
 xlsxwriter
+fonttools>=4.61.0 # not directly required, pinned by Snyk to avoid a vulnerability
